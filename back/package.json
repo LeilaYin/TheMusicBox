@@ -1,7 +1,7 @@
 {
-  "name": "the_music_box_back",
+  "name": "back-end",
   "version": "1.0.0",
-  "description": "Music application developed using NodeJs & Flutter...",
+  "description": "Back-end of a music application developed using NodeJs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
