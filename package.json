@@ -1,0 +1,24 @@
+{
+  "name": "the_music_box_back",
+  "version": "1.0.0",
+  "description": "Music application developed using NodeJs & Flutter...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeilaYin/TheMusicBox.git"
+  },
+  "keywords": [
+    "Music",
+    "Node",
+    "Flutter"
+  ],
+  "author": "L&R",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeilaYin/TheMusicBox/issues"
+  },
+  "homepage": "https://github.com/LeilaYin/TheMusicBox#readme"
+}
