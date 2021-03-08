@@ -1,24 +1,33 @@
 {
-  "name": "back-end",
+  "name": "back",
   "version": "1.0.0",
-  "description": "Back-end of a music application developed using NodeJs",
+  "description": "Cloud-TP1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LeilaYin/TheMusicBox.git"
+    "url": "git+https://github.com/K-Jean/CLOUD-TP1.git"
   },
   "keywords": [
-    "Music",
-    "Node",
-    "Flutter"
+    "cloud",
+    "microservice",
+    "REST"
   ],
-  "author": "L&R",
+  "author": "Kévin JEAN",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LeilaYin/TheMusicBox/issues"
+    "url": "https://github.com/K-Jean/CLOUD-TP1/issues"
   },
-  "homepage": "https://github.com/LeilaYin/TheMusicBox#readme"
+  "homepage": "https://github.com/K-Jean/CLOUD-TP1#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "sequelize": "^5.22.3",
+    "sequelize-cli": "^5.5.1"
+  },
+  "devDependencies": {
+    "sqlite3": "5.0.0"
+  }
 }
