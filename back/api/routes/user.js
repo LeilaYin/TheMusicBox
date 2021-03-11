@@ -58,56 +58,55 @@ module.exports = () => {
 
     //return all the users
     router.get('/', async (req, res) => {
-        models.Users.findAll().then((user) => {
-            res.send(user);
+        models.Users.findAll({attributes:['id','pseudo']}).then((user) => {
+            res.status(200).send(user);
         }).catch((error) => {
             res.status(500).send("There was a problem finding the users.");
         });
-        res.sendStatus(200);
     });
 
     //get a single user
+
+    
     router.get('/:id', async (req, res) => {
-        models.Users.findByPk(req.params.id).then((user) => {
-            res.send(user);
+        models.Users.findByPk(req.params.id,{attributes:['id','pseudo']}).then((user) => {
+            res.status(200).send(user);
         }).catch((error) => {
             res.status(500).send("There was a problem finding the user.");
         });
-        res.sendStatus(200);
     });
 
     //delete a user
     router.delete('/:id', async (req, res) => {
         models.Users.findByPk(req.params.id).then((user) => {
             res.delete(user);
+            res.sendStatus(200);
         }).catch((error) => {
             res.status(500).send("There was a problem deleting the user");
         });
-        res.sendStatus(200);
     });
 
     //update a user
     router.put('/:id', async (req, res) => {
         models.Users.findByPk(req.params.id).then((user) => {
-            res.set(req.body);
+            res.status(200).set(req.body);
         }).catch((error) => {
             res.status(500).send("There was a problem updating the user.");
         });
-        res.sendStatus(200);
     });
 
     //[TEST]check the validity of the user
-    router.get('/me', (req, res) => {
+    router.get('/test/me', (req, res) => {
         const token = req.headers['x-access-token'];
         if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
         jwt.verify(token, config.secret, function(err, decoded) {
             if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
         
             //res.status(200).send(decoded);
-            models.Users.findByPk(decoded.id).then((user) => {
+            models.Users.findByPk(decoded.id,{attributes:['id','pseudo']}).then((user) => {
                 if (!user) return res.status(404).send("No user found.");
                 const hiddenPass = user.pass; // to save the password somewhere
-                user.pass = null; 
+                //user.pass = null; 
                 res.status(200).send(user);
             }).catch((error) => {
                 if (error) return res.status(500).send("There was a problem finding the user.");

@@ -4,18 +4,18 @@ module.exports = (sequelize, DataTypes) => {
     pseudo: {
       type : DataTypes.STRING,
       required: true,
-      validate : {
+      /*validate : {
         isAlphanumeric: {args:true,
         msg: 'Please enter a string name for create an artist'}
-      }
+      }*/
     },
     pass: {
       type : DataTypes.STRING,
       required: true,
-      validate : {
+      /*validate : {
         isAlphanumeric: {args:true,
         msg: 'Please enter a string name for create an artist'}
-      }
+      }*/
     },
   },
   {
