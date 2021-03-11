@@ -17,8 +17,6 @@ module.exports = () => {
     });
 
     router.get('/:id', async (req, res) => {
-        //user = await models.Users.findByPk(req.params.id);
-        //res.send(user);
         if(validator.isInt(req.params.id)){
             models.Albums.findByPk(req.params.id,{include:[{model:models.Artists},{model:models.Songs}],attributes: ['id', 'AlbumName']},).then((album) => {
                 res.send(album);
@@ -28,13 +26,14 @@ module.exports = () => {
         }else{
             res.status(400).send("Bad parameter for Album ID, must be an integer");
         }
-        
-        
     });
 
     router.post('/', (req, res) => {
-        models.Albums.create(req.body);
-        res.status(200).send();
+        models.Albums.create(req.body).then(function(){
+            res.status(200).send();
+        }).catch(function(err){
+            res.status(400).send(err);
+        });
     });
 
     return router;

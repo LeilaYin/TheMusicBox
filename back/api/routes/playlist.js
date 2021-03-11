@@ -1,14 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const models = require('../../models');
+const validator = require('validator');
+
 
 module.exports = () => {
 
     router.get('/', async (req, res) => {
-        //res.send('Get all my books');
-       // user = await models.Users.findAll();
-        models.Playlists.findAll().then((playlist) => {
-            res.send(playlist);
+        models.Playlists.findAll({include:[{
+                                            model:models.Users,
+                                            as:'createdBy',
+                                            attributes:['id','pseudo']
+                                        }],
+                                attributes: ['id', 'PlaylistName']})
+                                .then((playlist) => {
+                                    res.send(playlist);
         }).catch((error) => {
             console.log(error);
             res.sendStatus(500);
@@ -16,11 +22,15 @@ module.exports = () => {
     });
 
     router.get('/:id', async (req, res) => {
-        //user = await models.Users.findByPk(req.params.id);
-        //res.send(user);
         if(validator.isInt(req.params.id)){
-            models.Playlists.findByPk(req.params.id).then((playlist) => {
-                res.send(playlist);
+            models.Playlists.findByPk(req.params.id,{include:[{
+                                                        model:models.Users,
+                                                        as:'createdBy',
+                                                        attributes:['id','pseudo']
+                                                    }],
+                                        attributes: ['id', 'PlaylistName']})
+                            .then((playlist) => {
+                                res.send(playlist);
             }).catch((error) => {
                 res.sendStatus(500);
             });
@@ -30,17 +40,24 @@ module.exports = () => {
     });
 
     router.get('/:id/songs', async (req, res) => {
-        //user = await models.Users.findByPk(req.params.id);
-        //res.send(user);
         if(validator.isInt(req.params.id)){
-            models.Playlists.findByPk(req.params.id).then((playlist) => {
-                playlist.getSongs().then((songs)=>{
-                    res.send(songs);
+            models.Playlists.findByPk(req.params.id,{include:[{
+                                                        model:models.Users,
+                                                            as:'createdBy',
+                                                            attributes:['id','pseudo']
+                                                        }
+                                                        ],
+                                                        attributes: ['id', 'PlaylistName']
+                                                    }
+                                    ).then((playlist) => {
+                                        playlist.getSongs({attributes:['id','SongName','Path']}).then((songs)=>{
+                                            res.send({...playlist.get({plain: true}),songs:songs});
                 }).catch((error) => {
                     console.log(error);
                     res.sendStatus(500);
                 });
             }).catch((error) => {
+                console.log(error);
                 res.sendStatus(500);
             });
         }else{
@@ -49,8 +66,11 @@ module.exports = () => {
     });
 
     router.post('/', (req, res) => {
-        models.Playlists.create(req.body);
-        res.status(200).send();
+        models.Playlists.create(req.body).then(function(){
+            res.status(200).send();
+        }).catch(function(err){
+            res.status(400).send(err);
+        });
     });
 
     return router;

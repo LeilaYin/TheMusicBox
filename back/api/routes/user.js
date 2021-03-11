@@ -26,8 +26,11 @@ module.exports = () => {
     });
 
     router.post('/', (req, res) => {
-        models.Users.create(req.body);
-        res.status(200).send();
+        models.Users.create(req.body).then(function(){
+            res.status(200).send();
+        }).catch(function(err){
+            res.status(400).send(err);
+        });
     });
 
     return router;

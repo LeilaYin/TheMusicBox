@@ -1,11 +1,44 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Songs = sequelize.define('Songs', {
-    SongName: DataTypes.STRING,
-    Path: DataTypes.STRING,
-    SongReleaseDate: DataTypes.DATE,
-    fk_album: DataTypes.INTEGER,
-    fk_artist: DataTypes.INTEGER
+    SongName: {
+      type : DataTypes.STRING, 
+      validate: {
+        isAlphanumeric: {args:true,
+        msg: 'Please enter a real song name'}
+      }
+    },
+    Path: {
+      type : DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        is: {args: /^(\/[a-zA-Z][a-zA-Z0-9]*)*[a-zA-Z0-9]*\.(mp3){1}$/i,
+        msg: "Please enter a valid path for the song"}
+        //is: /^(\/{0,1}[a-zA-Z][a-zA-Z0-9]*)*[a-zA-Z0-9]*\.(mp3){1}$/i
+      }
+    },
+    SongReleaseDate: {
+      type : DataTypes.DATE,
+      validate: {
+        isDate: {args:true,
+          msg: "Please enter a good release date"}
+      }
+    },
+    fk_album: {
+      type : DataTypes.INTEGER,
+      validate: {
+        isInt: {args:true,
+          msg: "Please enter an id (int) of an album"}
+      }
+    },
+    fk_artist: {
+      type : DataTypes.INTEGER,
+      validate: {
+        isInt: {args:true,
+          msg: "Please enter an id (int) of an artist"}
+        
+      }
+    }
   },
   {
     tableName: 'Song'
