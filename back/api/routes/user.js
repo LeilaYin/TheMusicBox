@@ -98,8 +98,6 @@ module.exports = () => {
 
     //[TEST]check the validity of the user
     router.get('/me', (req, res) => {
-        console.log('HERE');
-
         const token = req.headers['x-access-token'];
         if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
         jwt.verify(token, config.secret, function(err, decoded) {
