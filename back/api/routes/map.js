@@ -5,8 +5,6 @@ const models = require('../../models');
 module.exports = () => {
 
     router.get('/', async (req, res) => {
-        //res.send('Get all my books');
-       // user = await models.Users.findAll();
         models.MapPlaylistSongs.findAll().then((map) => {
             res.send(map);
         }).catch((error) => {
@@ -16,8 +14,6 @@ module.exports = () => {
     });
 
     router.get('/:id', async (req, res) => {
-        //user = await models.Users.findByPk(req.params.id);
-        //res.send(user);
         if(validator.isInt(req.params.id)){
             models.MapPlaylistSongs.findByPk(req.params.id).then((map) => {
                 res.send(map);

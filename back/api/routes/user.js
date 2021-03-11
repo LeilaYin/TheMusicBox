@@ -5,8 +5,6 @@ const models = require('../../models');
 module.exports = () => {
 
     router.get('/', async (req, res) => {
-        //res.send('Get all my books');
-       // user = await models.Users.findAll();
         models.Users.findAll().then((user) => {
             res.send(user);
         }).catch((error) => {
@@ -16,8 +14,6 @@ module.exports = () => {
     });
 
     router.get('/:id', async (req, res) => {
-        //user = await models.Users.findByPk(req.params.id);
-        //res.send(user);
         models.Users.findByPk(req.params.id).then((user) => {
             res.send(user);
         }).catch((error) => {

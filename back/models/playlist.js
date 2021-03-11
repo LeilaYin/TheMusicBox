@@ -23,7 +23,6 @@ module.exports = (sequelize, DataTypes) => {
 
   Playlist.associate = function(models) {
     models.Playlists.belongsTo(models.Users,{foreignKey: 'fk_user',as:'createdBy'}),
-    //models.Playlists.hasMany(models.MapPlaylistSongs,{foreignKey: 'fk_song'})
     models.Playlists.belongsToMany(models.Songs,{foreignKey: 'fk_playlist',through:'MapPlaylistSongs',as:'songs'})
   };
 

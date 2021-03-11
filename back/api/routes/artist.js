@@ -6,9 +6,7 @@ const validator = require('validator');
 module.exports = () => {
 
     router.get('/', async (req, res) => {
-        //res.send('Get all my books');
-       // user = await models.Users.findAll();
-        models.Artists.findAll().then((artist) => {
+        models.Artists.findAll({attributes:['id','ArtistName']}).then((artist) => {
             res.send(artist);
         }).catch((error) => {
             console.log(error);
@@ -17,10 +15,8 @@ module.exports = () => {
     });
 
     router.get('/:id', async (req, res) => {
-        //user = await models.Users.findByPk(req.params.id);
-        //res.send(user);
         if(validator.isInt(req.params.id)){
-            models.Artists.findByPk(req.params.id).then((artist) => {
+            models.Artists.findByPk(req.params.id,{attributes:['id','ArtistName']}).then((artist) => {
                 res.send(artist);
             }).catch((error) => {
                 res.sendStatus(500);
@@ -31,14 +27,12 @@ module.exports = () => {
     });
 
     router.get('/:idArtist/lastAlbum', async (req, res) => {
-        //user = await models.Users.findByPk(req.params.id);
-        //res.send(user);
         if(validator.isInt(req.params.idArtist)){
             models.Artists.findAll({
                 limit: 3,
                 where:{id:req.params.idArtist},
-                include:[{model:models.Albums}],
-                
+                include:[{model:models.Albums,attributes:['id','AlbumName','AlbumReleaseDate']}],
+                order:[[{model:models.Albums},'AlbumReleaseDate','DESC']]    
             }).then((artist) => {
                 res.send(artist);
             }).catch((error) => {
@@ -51,8 +45,6 @@ module.exports = () => {
     })
 
     router.get('/:idArtist/albums', async (req, res) => {
-        //user = await models.Users.findByPk(req.params.id);
-        //res.send(user);
         if(validator.isInt(req.params.idArtist)){
             models.Artists.findAll({
                 where:{id:req.params.idArtist},
@@ -70,8 +62,6 @@ module.exports = () => {
     })
 
     router.get('/:idArtist/album/:idAlbum', async (req, res) => {
-        //user = await models.Users.findByPk(req.params.id);
-        //res.send(user);
         if(validator.isInt(req.params.idArtist) && validator.isInt(req.params.idAlbum)){
             models.Artists.findAll({
                 where:{id:req.params.idArtist},
@@ -92,8 +82,6 @@ module.exports = () => {
     })
 
     router.get('/:idArtist/songs', async (req, res) => {
-        //user = await models.Users.findByPk(req.params.id);
-        //res.send(user);
         if(validator.isInt(req.params.idArtist)){
             models.Artists.findAll({
                 limit: 10,

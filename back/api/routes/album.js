@@ -6,9 +6,7 @@ const validator = require('validator');
 module.exports = () => {
 
     router.get('/', async (req, res) => {
-        //res.send('Get all my books');
-       // user = await models.Users.findAll();
-        models.Albums.findAll({include:[{model:models.Artists},{model:models.Songs}]}).then((album) => {
+        models.Albums.findAll({include:[{model:models.Artists,attributes:['id','ArtistName']}],attributes:['id','AlbumName']}).then((album) => {
             res.send(album);
         }).catch((error) => {
             console.log(error);
@@ -18,8 +16,19 @@ module.exports = () => {
 
     router.get('/:id', async (req, res) => {
         if(validator.isInt(req.params.id)){
-            models.Albums.findByPk(req.params.id,{include:[{model:models.Artists},{model:models.Songs}],attributes: ['id', 'AlbumName']},).then((album) => {
-                res.send(album);
+            models.Albums.findByPk(req.params.id,{
+                                                    include:[
+                                                        {
+                                                            model:models.Artists,
+                                                            attributes:['id','ArtistName']
+                                                        },
+                                                        {
+                                                            model:models.Songs,
+                                                            attributes:['id','SongName','Path']
+                                                        }],
+                                                        attributes: ['id', 'AlbumName']}
+                                    ).then((album) => {
+                                        res.send(album);
             }).catch((error) => {
                 res.sendStatus(500);
             });

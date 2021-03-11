@@ -37,12 +37,5 @@ module.exports = (sequelize, DataTypes) => {
     models.Albums.hasMany(models.Songs,{foreignKey: 'fk_album'})
   };
 
-  /*Albums.associate = function(models) {
-    models.Albums.hasMany(models.Songs)
-  };*/
-
-  //,{foreignKey: 'fk_artist'}
-
-
   return Albums;
 };
