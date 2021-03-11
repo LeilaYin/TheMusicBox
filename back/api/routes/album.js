@@ -7,7 +7,7 @@ module.exports = () => {
     router.get('/', async (req, res) => {
         //res.send('Get all my books');
        // user = await models.Users.findAll();
-        models.Albums.findAll().then((album) => {
+        models.Albums.findAll({include:[{model:models.Artists},{model:models.Songs}]}).then((album) => {
             res.send(album);
         }).catch((error) => {
             console.log(error);
@@ -18,7 +18,7 @@ module.exports = () => {
     router.get('/:id', async (req, res) => {
         //user = await models.Users.findByPk(req.params.id);
         //res.send(user);
-        models.Albums.findByPk(req.params.id).then((album) => {
+        models.Albums.findByPk(req.params.id,{include:[{model:models.Artists},{model:models.Songs}]}).then((album) => {
             res.send(album);
         }).catch((error) => {
             res.sendStatus(500);

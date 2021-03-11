@@ -9,7 +9,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   );
 
-  
+  Playlist.associate = function(models) {
+    //models.Albums.belongsTo(models.Artists,{foreignKey: 'fk_artist'}),
+    //models.Playlists.hasMany(models.MapPlaylistSongs,{foreignKey: 'fk_song'})
+    models.Playlists.belongsToMany(models.Songs,{foreignKey: 'fk_playlist',through:'MapPlaylistSongs',as:'songs'})
+  };
 
   return Playlist;
 };

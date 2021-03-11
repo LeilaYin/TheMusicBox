@@ -7,7 +7,7 @@ module.exports = () => {
     router.get('/', async (req, res) => {
         //res.send('Get all my books');
        // user = await models.Users.findAll();
-        models.Songs.findAll().then((song) => {
+        models.Songs.findAll({include:[{model:models.Artists},{model:models.Albums}],}).then((song) => {
             res.send(song);
         }).catch((error) => {
             console.log(error);

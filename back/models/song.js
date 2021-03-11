@@ -12,6 +12,16 @@ module.exports = (sequelize, DataTypes) => {
   }
   );
 
+  Songs.associate = function(models) {
+    models.Songs.belongsTo(models.Albums,{foreignKey: 'fk_album'}),
+    models.Songs.belongsTo(models.Artists,{foreignKey: 'fk_artist'}),
+    models.Songs.belongsToMany(models.Playlists,{foreignKey: 'fk_song',through:'MapPlaylistSongs'})
+  };
+
+  /*Songs.associate = function(models) {
+    models.Songs.belongsTo(models.Artists,{foreignKey: 'fk_artist'})
+    
+  };*/
   
 
   return Songs;
