@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const models = require('../../models');
+const validator = require('validator');
 
 module.exports = () => {
 
@@ -18,11 +19,17 @@ module.exports = () => {
     router.get('/:id', async (req, res) => {
         //user = await models.Users.findByPk(req.params.id);
         //res.send(user);
-        models.Albums.findByPk(req.params.id,{include:[{model:models.Artists},{model:models.Songs}]}).then((album) => {
-            res.send(album);
-        }).catch((error) => {
-            res.sendStatus(500);
-        });
+        if(validator.isInt(req.params.id)){
+            models.Albums.findByPk(req.params.id,{include:[{model:models.Artists},{model:models.Songs}],attributes: ['id', 'AlbumName']},).then((album) => {
+                res.send(album);
+            }).catch((error) => {
+                res.sendStatus(500);
+            });
+        }else{
+            res.status(400).send("Bad parameter for Album ID, must be an integer");
+        }
+        
+        
     });
 
     router.post('/', (req, res) => {
