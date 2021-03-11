@@ -5,10 +5,12 @@ module.exports = {
       dialect: "sqlite",
       storage: "./db.development.sqlite"
     },
+
     test: {
       dialect: "sqlite",
       storage: ":memory:"
     },
+
     production: {
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
@@ -16,5 +18,7 @@ module.exports = {
       host: process.env.DB_HOSTNAME,
       dialect: 'mysql',
       use_env_variable: 'DATABASE_URL'
-    }
+    },
+    //TODO put the secret key in an environment variable. 
+    'secret': 'supersecret'
 };
