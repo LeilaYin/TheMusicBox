@@ -1,5 +1,5 @@
 {
-  "name": "front",
+  "name": "my-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -12,6 +12,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.2.5",
+    "@angular/cdk": "^11.0.0",
     "@angular/common": "~11.2.5",
     "@angular/compiler": "~11.2.5",
     "@angular/core": "~11.2.5",
@@ -19,6 +20,8 @@
     "@angular/platform-browser": "~11.2.5",
     "@angular/platform-browser-dynamic": "~11.2.5",
     "@angular/router": "~11.2.5",
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "mdb-angular-ui-kit": "^1.0.0-alpha4",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
