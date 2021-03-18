@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AlbumListComponent } from './album/list/album-list.component';
 import { AlbumInformationComponent } from './album/informations/album-information.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { AlbumInformationComponent } from './album/informations/album-informatio
     HttpClientModule,
     AppRoutingModule,
     MdbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
