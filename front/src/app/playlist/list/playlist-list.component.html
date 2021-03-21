@@ -1,0 +1,16 @@
+<br/>
+<div class="row">
+    <div class="col-sm-3" *ngFor='let playlist of playlists$ | async'>
+        <div class="card" >
+            <div class="card-body text-center">
+              <h5 class="card-title text-center">{{playlist.PlaylistName}}</h5>
+              <p class="card-text">
+                Par : {{playlist.createdBy.pseudo}}
+              </p>
+              
+              <button type="button" class="btn btn-primary" [routerLink]="['/playlist', playlist.id]">Ecouter</button>
+              
+            </div>
+        </div>
+    </div>
+</div>
