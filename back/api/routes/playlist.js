@@ -73,5 +73,19 @@ module.exports = () => {
         });
     });
 
+    //delete a playlist
+    router.delete('/:id', async (req, res) => {
+        if(validator.isInt(req.params.id)){
+            models.Playlists.findByPk(req.params.id).then((playlist) => {
+                res.delete(playlist);
+                res.sendStatus(200);
+            }).catch((error) => {
+                res.status(500).send("There was a problem deleting the playlist.");
+            });
+        }else{
+            res.status(400).send("Bad parameter for deleting playlist, ID, must be an integer");
+        }  
+    });
+
     return router;
 };
