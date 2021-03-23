@@ -1,26 +1,26 @@
 {
   "name": "back",
   "version": "1.0.0",
-  "description": "Cloud-TP1",
+  "description": "A music application",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/K-Jean/CLOUD-TP1.git"
+    "url": "https://github.com/LeilaYin/TheMusicBox"
   },
   "keywords": [
-    "cloud",
+    "music",
     "microservice",
     "REST"
   ],
-  "author": "Kévin JEAN",
+  "author": "RV - LN",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/K-Jean/CLOUD-TP1/issues"
+    "url": "https://github.com/LeilaYin/TheMusicBox/issues"
   },
-  "homepage": "https://github.com/K-Jean/CLOUD-TP1#readme",
+  "homepage": "https://github.com/LeilaYin/TheMusicBox/blob/main/README.md",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",

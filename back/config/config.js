@@ -1,4 +1,3 @@
-
 module.exports = {
     port: 3000,
     development: {
@@ -18,7 +17,5 @@ module.exports = {
       host: process.env.DB_HOSTNAME,
       dialect: 'mysql',
       use_env_variable: 'DATABASE_URL'
-    },
-    //TODO put the secret key in an environment variable. 
-    'secret': 'supersecret'
+    }
 };

@@ -10,6 +10,11 @@ module.exports = (app) => {
     res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
     next();
   });
+    // parse requests of content-type - application/json
+    app.use(bodyParser.json());
+
+    // parse requests of content-type - application/x-www-form-urlencoded
+    app.use(bodyParser.urlencoded({ extended: true }));
     /**
      * Health Check endpoints
      */
