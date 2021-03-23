@@ -5,6 +5,8 @@ import { AlbumInformationComponent } from './album/informations/album-informatio
 import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {ProfileComponent} from './profile/profile.component';
+import { PlaylistInformationComponent } from './playlist/informations/playlist-information.component';
+import { PlaylistListComponent } from './playlist/list/playlist-list.component';
 
 const routes: Routes = [
   // {path:'/home', component: },
@@ -13,11 +15,14 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
+  {path : 'playlist/:id',component: PlaylistInformationComponent},
+  {path : 'playlist',component: PlaylistListComponent},
   
+  {path:'',redirectTo: 'album',pathMatch: 'full'},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{enableTracing: true,useHash: true,preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

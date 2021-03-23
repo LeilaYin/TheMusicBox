@@ -107,5 +107,19 @@ module.exports = () => {
         });
     });
 
+    //delete an artist
+    router.delete('/:id', async (req, res) => {
+        if(validator.isInt(req.params.id)){
+            models.Artists.findByPk(req.params.id).then((artist) => {
+                res.delete(artist);
+                res.sendStatus(200);
+            }).catch((error) => {
+                res.status(500).send("There was a problem deleting the artist.");
+            });
+        }else{
+            res.status(400).send("Bad parameter for deleting artist, ID, must be an integer");
+        }  
+    });
+
     return router;
 };

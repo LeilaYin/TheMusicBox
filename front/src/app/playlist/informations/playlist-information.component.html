@@ -1,0 +1,22 @@
+
+
+<div *ngIf="playlist$ | async as playlist; else loading">
+        <h1>Title : {{playlist.PlaylistName}}</h1>
+        <div>
+            <p>Créé par  : {{playlist.createdBy.pseudo}}</p>
+        </div>
+        <div class="col-sm-3" >
+            Titres
+            <ul *ngFor='let song of playlist.songs'>
+               <li>{{song.SongName}}</li> 
+               <audio controls>
+                   <source [src]=transform(song.Path)  type="audio/mpeg">
+               </audio>
+            </ul>
+            
+        </div>
+</div>
+
+<ng-template #loading>
+    Loading...
+</ng-template>

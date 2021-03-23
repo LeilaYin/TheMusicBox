@@ -45,5 +45,19 @@ module.exports = () => {
         });
     });
 
+    //delete an album
+    router.delete('/:id', async (req, res) => {
+        if(validator.isInt(req.params.id)){
+            models.Albums.findByPk(req.params.id).then((album) => {
+                res.delete(album);
+                res.sendStatus(200);
+            }).catch((error) => {
+                res.status(500).send("There was a problem deleting the album.");
+            });
+        }else{
+            res.status(400).send("Bad parameter for deleting album, ID, must be an integer");
+        }  
+    });
+
     return router;
 };
