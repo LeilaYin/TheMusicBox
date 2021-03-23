@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadingStrategy, PreloadAllModules,RouterModule, Routes } from '@angular/router';
 import { AlbumListComponent } from './album/list/album-list.component';
 import { AlbumInformationComponent } from './album/informations/album-information.component';
 import {LoginComponent} from './login/login.component';
