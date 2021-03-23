@@ -1,4 +1,4 @@
-export class Artist {
+export class User {
     pseudo: string;
     pass: string;
 }
