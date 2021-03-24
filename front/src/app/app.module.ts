@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 // @ts-ignore
 import { authInterceptorProviders } from './helpers/auth.interceptor';
-
+import { RouterModule } from '@angular/router';
 import { AlbumListComponent } from './album/list/album-list.component';
 import { AlbumInformationComponent } from './album/informations/album-information.component';
 import { LoginComponent } from './login/login.component';
@@ -36,6 +36,7 @@ import { PlaylistListComponent } from './playlist/list/playlist-list.component';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    RouterModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [authInterceptorProviders],
