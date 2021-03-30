@@ -18,6 +18,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { PlaylistInformationComponent } from './playlist/informations/playlist-information.component';
 import { PlaylistListComponent } from './playlist/list/playlist-list.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ArtistListComponent } from './artist/list/artist-list.component';
+import { ArtistInformationsComponent } from './artist/informations/artist-informations.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { PlaylistListComponent } from './playlist/list/playlist-list.component';
     RegisterComponent,
     ProfileComponent,
     PlaylistInformationComponent,
-    PlaylistListComponent
+    PlaylistListComponent,
+    NavbarComponent,
+    ArtistListComponent,
+    ArtistInformationsComponent
   ],
   imports: [
     BrowserModule,

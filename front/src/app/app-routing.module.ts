@@ -7,6 +7,8 @@ import {RegisterComponent} from './register/register.component';
 import {ProfileComponent} from './profile/profile.component';
 import { PlaylistInformationComponent } from './playlist/informations/playlist-information.component';
 import { PlaylistListComponent } from './playlist/list/playlist-list.component';
+import { ArtistListComponent } from './artist/list/artist-list.component';
+import { ArtistInformationsComponent } from './artist/informations/artist-informations.component';
 
 const routes: Routes = [
   // {path:'/home', component: },
@@ -17,7 +19,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   {path : 'playlist/:id',component: PlaylistInformationComponent},
   {path : 'playlist',component: PlaylistListComponent},
-  
+  {path : 'artist', component: ArtistListComponent},
+  {path : 'artist/:id',component: ArtistInformationsComponent},
   {path:'',redirectTo: 'album',pathMatch: 'full'},
 ];
 
