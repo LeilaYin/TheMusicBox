@@ -7,4 +7,4 @@ userBoard = (req, res) => {
 };
 
 const access = { allAccess, userBoard};
-module.exports = {access};
+module.exports = { access };

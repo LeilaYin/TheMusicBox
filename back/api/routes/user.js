@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const models = require('../../models');
+const access = require('../controller/user.controller')
+const authJwt = require('../middleware/index');
 
 module.exports = () => {
     //return all the users
@@ -39,5 +41,6 @@ module.exports = () => {
             res.status(500).send("There was a problem updating the user.");
         });
     });
+    
     return router;
 };
