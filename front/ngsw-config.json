@@ -46,6 +46,15 @@
         "maxAge": "1d",
         "strategy": "performance"
       }
+    },
+    {
+      "name" : "ArtistList",
+      "urls": ["localhost:3000/api/artist","localhost:4343"],
+      "cacheConfig": {
+        "maxSize": 1024,
+        "maxAge": "1d",
+        "strategy": "performance"
+      }
     }
   ]
   

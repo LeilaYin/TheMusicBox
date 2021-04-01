@@ -20,6 +20,9 @@ import { PlaylistInformationComponent } from './playlist/informations/playlist-i
 import { PlaylistListComponent } from './playlist/list/playlist-list.component';
 import { HomeComponent } from './public-home/home.component';
 import { UserHomeComponent } from './user-home/user-home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ArtistListComponent } from './artist/list/artist-list.component';
+import { ArtistInformationsComponent } from './artist/informations/artist-informations.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { UserHomeComponent } from './user-home/user-home.component';
     PlaylistInformationComponent,
     PlaylistListComponent,
     HomeComponent,
-    UserHomeComponent
+    UserHomeComponent,
+    NavbarComponent,
+    ArtistListComponent,
+    ArtistInformationsComponent
   ],
   imports: [
     BrowserModule,

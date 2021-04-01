@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
+import { PreloadingStrategy, PreloadAllModules,RouterModule, Routes } from '@angular/router';
 import { AlbumListComponent } from './album/list/album-list.component';
 import { AlbumInformationComponent } from './album/informations/album-information.component';
 import {LoginComponent} from './login/login.component';
@@ -9,6 +9,8 @@ import { PlaylistInformationComponent } from './playlist/informations/playlist-i
 import { PlaylistListComponent } from './playlist/list/playlist-list.component';
 import { HomeComponent } from './public-home/home.component';
 import { UserHomeComponent } from './user-home/user-home.component'
+import { ArtistListComponent } from './artist/list/artist-list.component';
+import { ArtistInformationsComponent } from './artist/informations/artist-informations.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
@@ -20,8 +22,10 @@ const routes: Routes = [
   { path : 'playlist/:id', component: PlaylistInformationComponent },
   { path : 'playlist', component: PlaylistListComponent },
   { path : 'home', component: UserHomeComponent},
+  {path : 'artist', component: ArtistListComponent},
+  {path : 'artist/:id',component: ArtistInformationsComponent},
   
-  { path:'',redirectTo: 'Home',pathMatch: 'full' },
+  { path:'',redirectTo: 'Home',pathMatch: 'full' }
 ];
 
 @NgModule({
