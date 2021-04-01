@@ -22,34 +22,61 @@
       id="navbarSupportedContent"
     >
       <!-- Left links -->
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Accueil</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/playlist">Playlist</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/album">Album</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Artist</a>
-        </li>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" routerLinkActive="active">
+        <!-- Authentication -->
+        <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/Home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+        </ul>
+        <!-- Authentication -->
+
+        <!-- Logged in -->
+        
+        <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/profile">{{ this.username }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/playlist">Playlist</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/album">Album</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Artist</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()">LogOut</a>
+          </li>
+        </ul>
+        <!-- Logged in -->
+
       </ul>
       <!-- Left links -->
 
       <!-- Search form -->
       <form class="d-flex input-group w-auto">
-        <input
-          type="search"
-          class="form-control"
-          placeholder="..."
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-primary" type="button">
-          Rechercher
-        </button>
+          <input
+            type="search"
+            class="form-control"
+            placeholder="..."
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-primary" type="button"  >
+            Rechercher
+          </button>
       </form>
+      <!-- Search form -->
     </div>
   </div>
 </nav>

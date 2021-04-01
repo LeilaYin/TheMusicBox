@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // @ts-ignore
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { RouterModule } from '@angular/router';
@@ -18,6 +18,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { PlaylistInformationComponent } from './playlist/informations/playlist-information.component';
 import { PlaylistListComponent } from './playlist/list/playlist-list.component';
+import { HomeComponent } from './public-home/home.component';
+import { UserHomeComponent } from './user-home/user-home.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { PlaylistListComponent } from './playlist/list/playlist-list.component';
     RegisterComponent,
     ProfileComponent,
     PlaylistInformationComponent,
-    PlaylistListComponent
+    PlaylistListComponent,
+    HomeComponent,
+    UserHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,7 @@ import { PlaylistListComponent } from './playlist/list/playlist-list.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,
+    ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [authInterceptorProviders],
