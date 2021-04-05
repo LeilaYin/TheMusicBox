@@ -61,9 +61,24 @@
         <!-- Logged in -->
        </ul>
        <!-- Left links -->
- 
-       <!-- Search form -->
-       <form class="d-flex input-group w-auto">
+        <!-- Search form -->
+ <form>
+    <mat-form-field>
+      <mat-label>Selectionnez moi svp</mat-label>
+      <input type="text"
+      placeholder="Choose an album "
+      aria-label="album"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto" />
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="navigateOnSelect($event)">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option.AlbumName">
+          {{option.AlbumName}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+       <!--<form class="d-flex input-group w-auto">
          <input
            type="search"
            class="form-control"
@@ -73,9 +88,10 @@
          <button class="btn btn-outline-primary" type="button">
            Rechercher
          </button>
-       </form>
+       </form>-->
+
+      <!-- Search form -->
      </div>
    </div>
  </nav>
- </header>
- <br/>
+  </header>

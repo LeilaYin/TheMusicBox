@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-const API_URL = 'http://localhost:3000/api/';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +10,9 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   /*getPublicContent(): Observable<any> {
-    return this.http.get(API_URL + 'home', { responseType: 'text' });
+    return this.http.get(environment.api + 'home', { responseType: 'text' });
   }*/
   getUserBoard(): Observable<any> {
-    return this.http.get(API_URL + 'auth/up', { responseType: 'text' });
+    return this.http.get(environment.api + '/auth/up', { responseType: 'text' });
   }
 }

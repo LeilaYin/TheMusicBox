@@ -1,5 +1,5 @@
-import {Artist } from './artist';
-import {Song } from './songs';
+import { Artist } from './artist';
+import { Song } from './songs';
 
 export class Album {
     id: number;
