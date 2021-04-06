@@ -58,7 +58,7 @@ import { ArtistInformationsComponent } from './artist/informations/artist-inform
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production, registrationStrategy: "registerImmediately" }),
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
