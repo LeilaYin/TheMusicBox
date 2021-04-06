@@ -11,11 +11,10 @@ export class AlbumService {
   constructor(private http: HttpClient) { }
 
   /* here you need to put the logic to call the back */
-  getAlbums() : Observable<Array<Album>> {
+  getAlbums(): Observable<Array<Album>> {
     return this.http.get<Array<Album>>(environment.api + '/album');
   }
-  
-  getAlbum(id: number | string) : Observable<Album> {
+  getAlbum(id: number | string): Observable<Album> {
     return this.http.get<Album>(`${environment.api}/album/${id}`);
   }
   /*
@@ -31,5 +30,4 @@ export class AlbumService {
   updateBook(book: Book) : void {
     this.http.put(`${environment.api}/book/${book.id}`, book).subscribe();
   }*/
-
 }

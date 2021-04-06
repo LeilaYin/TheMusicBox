@@ -2,15 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { PlaylistService } from 'src/app/services/playlist.service';
 import { Playlist } from 'src/app/models/playlist';
 import { Observable } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
-
 @Component({
   selector: 'app-root',
   templateUrl: './playlist-list.component.html'
 })
 export class PlaylistListComponent implements OnInit {
 
-  playlists$: Observable<Array<Playlist>>
+  playlists$: Observable<Array<Playlist>>;
 
   constructor(private playlistService: PlaylistService) {
 
@@ -22,7 +20,7 @@ export class PlaylistListComponent implements OnInit {
   /*
   deleteBook(id : number) : void {
     this.bookService.deleteBook(id).subscribe((success : boolean) => {
-        //if false popup error ? 
+        //if false popup error ?
         //reload list of books
         this.books$ = this.books$.pipe(
           map(books => {
@@ -31,5 +29,4 @@ export class PlaylistListComponent implements OnInit {
         );
     })
   }*/
-
 }

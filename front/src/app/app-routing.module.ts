@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PreloadingStrategy, PreloadAllModules,RouterModule, Routes } from '@angular/router';
+import { PreloadingStrategy, PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AlbumListComponent } from './album/list/album-list.component';
 import { AlbumInformationComponent } from './album/informations/album-information.component';
 import {LoginComponent} from './login/login.component';
@@ -21,15 +21,15 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path : 'playlist/:id', component: PlaylistInformationComponent },
   { path : 'playlist', component: PlaylistListComponent },
-  { path : 'home', component: UserHomeComponent},
-  {path : 'artist', component: ArtistListComponent},
-  {path : 'artist/:id',component: ArtistInformationsComponent},
-  
-  { path:'',redirectTo: 'Home',pathMatch: 'full' }
+  { path : 'home', component: UserHomeComponent },
+  { path : 'artist', component: ArtistListComponent },
+  { path : 'artist/:id', component: ArtistInformationsComponent },
+
+  { path: '', redirectTo: 'Home', pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{enableTracing: true,useHash: true,preloadingStrategy: PreloadAllModules})],
+  imports: [RouterModule.forRoot(routes, {enableTracing: true, useHash: true, preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
