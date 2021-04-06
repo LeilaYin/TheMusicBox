@@ -1,8 +1,7 @@
-<div class="container" *ngIf="currentUser; else loggedOut">
-  <header class="jumbotron">
+<div class="container" *ngIf="isLoggedIn">
     <h3 class="current-user">This is <strong>{{this.currentUser.pseudo}}</strong>'s profile page</h3>
-  </header>
-
 </div>
 
-<ng-template #loggedOut>Please login.</ng-template>
+<div class="container" *ngIf="!isLoggedIn">
+    <h3 class="public-user">Please login in order to access your profile page.</h3>
+</div>

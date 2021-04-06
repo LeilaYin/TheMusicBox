@@ -14,6 +14,6 @@ module.exports = () => {
   router.get('/up',[authJwt.verifyToken], access.userBoard);
   // user logout
   router.get('/logout', authentication.logout);
-
+  
   return router;
 };

@@ -7,21 +7,25 @@ import {RegisterComponent} from './register/register.component';
 import {ProfileComponent} from './profile/profile.component';
 import { PlaylistInformationComponent } from './playlist/informations/playlist-information.component';
 import { PlaylistListComponent } from './playlist/list/playlist-list.component';
+import { HomeComponent } from './public-home/home.component';
+import { UserHomeComponent } from './user-home/user-home.component'
 import { ArtistListComponent } from './artist/list/artist-list.component';
 import { ArtistInformationsComponent } from './artist/informations/artist-informations.component';
 
 const routes: Routes = [
-  // {path:'/home', component: },
+  { path: 'Home', component: HomeComponent },
   { path: 'album', component: AlbumListComponent },
   { path: 'album/:id', component: AlbumInformationComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
-  {path : 'playlist/:id',component: PlaylistInformationComponent},
-  {path : 'playlist',component: PlaylistListComponent},
+  { path : 'playlist/:id', component: PlaylistInformationComponent },
+  { path : 'playlist', component: PlaylistListComponent },
+  { path : 'home', component: UserHomeComponent},
   {path : 'artist', component: ArtistListComponent},
   {path : 'artist/:id',component: ArtistInformationsComponent},
-  {path:'',redirectTo: 'album',pathMatch: 'full'},
+  
+  { path:'',redirectTo: 'Home',pathMatch: 'full' }
 ];
 
 @NgModule({
