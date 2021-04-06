@@ -71,7 +71,7 @@ import { ArtistInformationsComponent } from './artist/informations/artist-inform
     MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
-  ],  
+  ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })

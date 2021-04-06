@@ -4,23 +4,20 @@
    <div class="container-fluid">
      <!-- Navbar brand -->
      <a class="navbar-brand" href="#">The Music Box</a>
- 
+
      <!-- Toggle button -->
      <button
        class="navbar-toggler"
        type="button"
        aria-expanded="false"
       aria-label="Toggle navigation"
-       (click)="toggleNavbar()"
-     >
+       (click)="toggleNavbar()">
        <i class="fas fa-bars"></i>
      </button>
- 
      <!-- Collapsible wrapper -->
      <div
        class="collapse navbar-collapse"
-       [ngClass]="{ 'show': navbarOpen }"
-     >
+       [ngClass]="{ 'show': navbarOpen }">
        <!-- Left links -->
        <ul class="navbar-nav me-auto mb-2 mb-lg-0" routerLinkActive="active">
         <!-- Logged out -->

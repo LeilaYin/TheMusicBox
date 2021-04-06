@@ -7,5 +7,3 @@ export class Album {
     Artist: Artist;
     Songs: Song;
 }
-
-

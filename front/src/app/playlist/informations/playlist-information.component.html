@@ -1,5 +1,3 @@
-
-
 <div *ngIf="playlist$ | async as playlist; else loading">
         <h1>Title : {{playlist.PlaylistName}}</h1>
         <div>
@@ -8,12 +6,11 @@
         <div class="col-sm-3" >
             Titres
             <ul *ngFor='let song of playlist.songs'>
-               <li>{{song.SongName}}</li> 
+               <li>{{song.SongName}}</li>
                <audio controls>
                    <source [src]=transform(song.Path)  type="audio/mpeg">
                </audio>
             </ul>
-            
         </div>
 </div>
 

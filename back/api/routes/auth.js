@@ -10,7 +10,7 @@ module.exports = () => {
   router.post('/register',[verifySignUp.checkDuplicateUsername], authentication.signup);
   // User login
   router.post('/login', [authentication.signin]);
-  // for loggedin users
+  // for logged in users
   router.get('/up',[authJwt.verifyToken], access.userBoard);
   // user logout
   router.get('/logout', authentication.logout);
