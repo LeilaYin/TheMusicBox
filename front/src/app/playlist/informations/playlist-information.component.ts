@@ -12,8 +12,9 @@ import { environment } from 'src/environments/environment';
   selector: 'app-root',
   templateUrl: './playlist-information.component.html'
 })
-export class PlaylistInformationComponent implements OnInit {
 
+export class PlaylistInformationComponent implements OnInit {
+    
     playlist$: Observable<Playlist>;
     edit: boolean;
     constructor(private route: ActivatedRoute, private router: Router,

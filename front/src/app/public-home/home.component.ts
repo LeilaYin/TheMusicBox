@@ -22,4 +22,5 @@ export class HomeComponent implements OnInit {
       this.content = JSON.parse(err.error).message;
     }); */
   }
+//   getUrl() { return "url('../../assets/wallpapers/wallpaper3.jpeg')"; }
 }

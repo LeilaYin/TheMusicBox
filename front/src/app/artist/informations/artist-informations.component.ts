@@ -11,9 +11,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
   templateUrl: './artist-informations.component.html',
 })
 export class ArtistInformationsComponent implements OnInit {
-
   artist$: Observable<Artist>;
-
   albums$: Observable<Array<Album>>
 
   constructor(private route: ActivatedRoute, private router: Router, private artistService: ArtistService) { }
