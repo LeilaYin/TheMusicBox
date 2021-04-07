@@ -1,4 +1,5 @@
-<div *ngIf="album$ | async as album; else loading">
+<div *ngIf="isLoggedIn">
+    <div *ngIf="album$ | async as album; else loading">
         <h1>Title : {{album.AlbumName}}</h1>
         <div>
             <p>Par  : {{album.Artist.ArtistName}}</p>
@@ -12,8 +13,11 @@
                </audio>
             </ul>
         </div>
+    </div>
 </div>
-
+<div class="container" *ngIf="!isLoggedIn">
+    <h3 class="public-user" style="text-align: center">Please login in order to access this page</h3>
+</div>
 <ng-template #loading>
     Loading...
 </ng-template>
