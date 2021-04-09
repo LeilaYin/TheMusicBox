@@ -10,7 +10,9 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: ./front
     steps:
       - name: Checkout Repo
       - uses: actions/checkout@v2
@@ -20,11 +22,9 @@ jobs:
           node-version: '15.x'
     
       - name: Install Dependencies
-        working-directory: front
         run: npm install
       # Runs a set of commands to build
       - name: Build
-        working-directory: front
         run: npm run build --prod
   deploy:
     name: Deploy
