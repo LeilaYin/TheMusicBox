@@ -6,9 +6,6 @@ import { map, startWith } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Album } from '../models/albums';
 import { AlbumService } from '../services/album.service';
-import { PlaylistService } from '../services/playlist.service';
-import { ArtistService } from '../services/artist.service';
-
 
 @Component({
   selector: 'app-navbar',
@@ -31,8 +28,7 @@ export class NavbarComponent implements OnInit {
   }
 
   constructor(private tokenStorageService: TokenStorageService,
-              private albumApi: AlbumService, private playlistApi: PlaylistService, private artistApi: ArtistService,
-              private router: Router) {}
+              private albumApi: AlbumService, private router: Router) {}
 
   ngOnInit(): void {
     // for search bar

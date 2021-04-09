@@ -1,7 +1,7 @@
 .logo{      
     margin-left: 1px;      
-    height: 35px;
-    width: 120px;      
+    // height: 35px;
+    // width: 120px;      
 }      
 
 .navbar-light .navbar-nav .nav-link:focus {
@@ -11,5 +11,7 @@
 .navbar-light .navbar-nav .nav-link:hover{
     color: rgb(16 17 173);
 }
-
+.nav-link:hover {
+    cursor: pointer;
+}
   
