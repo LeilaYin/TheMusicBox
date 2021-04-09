@@ -5,6 +5,7 @@ import { Album } from 'src/app/models/albums';
 import { ArtistService } from 'src/app/services/artist.service';
 import { flatMap } from 'rxjs/operators';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-artist',
@@ -13,10 +14,11 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 export class ArtistInformationsComponent implements OnInit {
   artist$: Observable<Artist>;
   albums$: Observable<Array<Album>>
-
-  constructor(private route: ActivatedRoute, private router: Router, private artistService: ArtistService) { }
+  isLoggedIn = false;
+  constructor(private route: ActivatedRoute, private router: Router, private artistService: ArtistService, private token: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.isLoggedIn = !!this.token.getToken();
     // this.artist$ = this.artistService.getArtist();
     this.artist$ = this.route.paramMap.pipe(
       flatMap((params: ParamMap) => {
