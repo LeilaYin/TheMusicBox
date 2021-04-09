@@ -1,4 +1,4 @@
-name: Build
+name: Build and deploy
 on:
   push:
     branches:
@@ -24,12 +24,6 @@ jobs:
       # Runs a set of commands to build
       - name: Build
         run: npm run build --prod
-      # sotre the artifact
-      - name: Archive Production Artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: public
-          path: ./public
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
@@ -37,7 +31,7 @@ jobs:
     needs: [build] 
     steps:
       # building the app before deploy
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - uses: actions/setup-node@master
         with:
           node-version: '15.x'
