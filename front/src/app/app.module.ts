@@ -32,6 +32,7 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ArtistListComponent } from './artist/list/artist-list.component';
 import { ArtistInformationsComponent } from './artist/informations/artist-informations.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 @NgModule({
@@ -72,7 +73,7 @@ import { ArtistInformationsComponent } from './artist/informations/artist-inform
     MatFormFieldModule,
     MatInputModule,
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
