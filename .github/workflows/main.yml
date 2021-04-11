@@ -8,12 +8,13 @@ on:
       - main
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        working-directory: front
     steps:
       - name: Checkout Repo
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Setup node
         uses: actions/setup-node@master
         with:
@@ -25,8 +26,10 @@ jobs:
       - name: Build
         run: npm run build --prod
   deploy:
-    name: Deploy
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: front
     # only run if build job complte successfully 
     needs: [build] 
     steps:
@@ -40,11 +43,14 @@ jobs:
         run: npm install
       # build the app
       - name: Build the app artifact for prod
-        run: npm run build --prod  
+        run: npm run build --prod
           
       - name: Angular Deploy gh-pages Actions
         uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.2.0
         with:
           github_access_token: ${{ secrets.ACCESS_TOKEN }}
+          build_configuration: production
+          angular_project_dir: front
           build_folder: front/dist/my-app
-          base_href: /TheMusicBox/front/
+          base_href: /TheMusicBox/
+          deploy_branch: main
