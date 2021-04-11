@@ -50,4 +50,3 @@ jobs:
         with:
           github_access_token: ${{ secrets.ACCESS_TOKEN }}
           build_folder: front/dist/my-app
-          base_href: /TheMusicBox/front/
