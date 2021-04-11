@@ -7,6 +7,7 @@ import { flatMap } from 'rxjs/operators';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -17,10 +18,12 @@ export class PlaylistInformationComponent implements OnInit {
     
     playlist$: Observable<Playlist>;
     edit: boolean;
+    isLoggedIn = false;
     constructor(private route: ActivatedRoute, private router: Router,
-                private playlistService: PlaylistService, private sanitizer: DomSanitizer) {}
+                private playlistService: PlaylistService, private sanitizer: DomSanitizer,private token: TokenStorageService) {}
 
     ngOnInit(): void {
+        this.isLoggedIn = !!this.token.getToken();
         this.edit = false;
         this.playlist$ = this.route.paramMap.pipe(
             flatMap((params: ParamMap) => {
