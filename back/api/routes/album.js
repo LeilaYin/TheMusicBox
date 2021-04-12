@@ -57,7 +57,7 @@ module.exports = () => {
                 res.status(200).send(true);
             }).catch((error) => {
 
-                res.status(500).send("There was a problem deleting the album."+error);
+                res.status(500).send("There was a problem deleting the album. \n Error : "+error);
             });
         }else{
             res.status(400).send("Bad parameter for deleting album, ID, must be an integer");
