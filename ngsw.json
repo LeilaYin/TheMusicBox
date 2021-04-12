@@ -1,0 +1,156 @@
+{
+  "configVersion": 1,
+  "timestamp": 1618162731095,
+  "index": "/TheMusicBox/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/TheMusicBox/favicon.ico",
+        "/TheMusicBox/index.html",
+        "/TheMusicBox/main.9c46458d93453284c67d.js",
+        "/TheMusicBox/manifest.webmanifest",
+        "/TheMusicBox/polyfills.00096ed7d93ed26ee6df.js",
+        "/TheMusicBox/runtime.7b63b9fd40098a2e8207.js",
+        "/TheMusicBox/styles.fa2a071d94a89e40c52b.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/TheMusicBox/assets/icons/icon-128x128.png",
+        "/TheMusicBox/assets/icons/icon-144x144.png",
+        "/TheMusicBox/assets/icons/icon-152x152.png",
+        "/TheMusicBox/assets/icons/icon-192x192.png",
+        "/TheMusicBox/assets/icons/icon-384x384.png",
+        "/TheMusicBox/assets/icons/icon-512x512.png",
+        "/TheMusicBox/assets/icons/icon-72x72.png",
+        "/TheMusicBox/assets/icons/icon-96x96.png",
+        "/TheMusicBox/assets/icons/logo_large.png",
+        "/TheMusicBox/fa-brands-400.330e879afe4a0abb35f2.ttf",
+        "/TheMusicBox/fa-brands-400.5f63cb7f47b6ea89773b.woff",
+        "/TheMusicBox/fa-brands-400.6e63bd22128f27b83f22.woff2",
+        "/TheMusicBox/fa-brands-400.98f20b9ec79b2fee02a3.eot",
+        "/TheMusicBox/fa-brands-400.991c1c761fc31f9c3252.svg",
+        "/TheMusicBox/fa-regular-400.2c154b0f8c0d8d166162.woff2",
+        "/TheMusicBox/fa-regular-400.62a07ffeac77696f17ef.eot",
+        "/TheMusicBox/fa-regular-400.ac2367644e559de4ff33.ttf",
+        "/TheMusicBox/fa-regular-400.ea5a41ec4a24ce93298e.woff",
+        "/TheMusicBox/fa-regular-400.f3187c7462849ed261a8.svg",
+        "/TheMusicBox/fa-solid-900.0454203f26b33fc02e2b.svg",
+        "/TheMusicBox/fa-solid-900.3eb06c702e27fb110194.woff2",
+        "/TheMusicBox/fa-solid-900.6606667d9800a27eb8b5.eot",
+        "/TheMusicBox/fa-solid-900.915a0b79c22a1c1f64da.ttf",
+        "/TheMusicBox/fa-solid-900.f4f93856730733912b1e.woff"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "albumList",
+      "patterns": [
+        "\\/TheMusicBox\\/localhost:3000\\/api\\/album",
+        "\\/TheMusicBox\\/localhost:4343"
+      ],
+      "strategy": "performance",
+      "maxSize": 1024,
+      "maxAge": 86400000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    },
+    {
+      "name": "PlaylistList",
+      "patterns": [
+        "\\/TheMusicBox\\/localhost:3000\\/api\\/playlist",
+        "\\/TheMusicBox\\/localhost:4343"
+      ],
+      "strategy": "performance",
+      "maxSize": 1024,
+      "maxAge": 86400000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    },
+    {
+      "name": "ArtistList",
+      "patterns": [
+        "\\/TheMusicBox\\/localhost:3000\\/api\\/artist",
+        "\\/TheMusicBox\\/localhost:4343"
+      ],
+      "strategy": "performance",
+      "maxSize": 1024,
+      "maxAge": 86400000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/TheMusicBox/assets/icons/icon-128x128.png": "a6f223f9dc4bc2ffc6b516fd5c2d2927504d0561",
+    "/TheMusicBox/assets/icons/icon-144x144.png": "4bcf2350abada63639cd6c56f9a11313947f70cc",
+    "/TheMusicBox/assets/icons/icon-152x152.png": "3707b41f70aeaaa20587bb414f381c17cfdde742",
+    "/TheMusicBox/assets/icons/icon-192x192.png": "5d5b587b5e637e33000b4cc19f2b5962346841a4",
+    "/TheMusicBox/assets/icons/icon-384x384.png": "ec63037489b695bcbc79f9bc126868da1b6b989b",
+    "/TheMusicBox/assets/icons/icon-512x512.png": "b8aafab5e9997ec1d935d6d026c44220b84427c2",
+    "/TheMusicBox/assets/icons/icon-72x72.png": "2694bf43e8fec402469093ab2581cee8ef8546f8",
+    "/TheMusicBox/assets/icons/icon-96x96.png": "57bf41bdf5ba4c994fb9cd839d01883b5d19a2a4",
+    "/TheMusicBox/assets/icons/logo_large.png": "93277295798968997ca6be4a874800a6d2d69be0",
+    "/TheMusicBox/fa-brands-400.330e879afe4a0abb35f2.ttf": "1d7866a71b5e80f5347a0e7ecda5d73417eb32dc",
+    "/TheMusicBox/fa-brands-400.5f63cb7f47b6ea89773b.woff": "30aa9a4a5fa52ecc8b0bd4ab043b6c0ae21ed466",
+    "/TheMusicBox/fa-brands-400.6e63bd22128f27b83f22.woff2": "9e355abda14ee62a7987b2ba7e2e887d33337e25",
+    "/TheMusicBox/fa-brands-400.98f20b9ec79b2fee02a3.eot": "2f3fffe922f60679e7e3c6a06c2432f9762a9465",
+    "/TheMusicBox/fa-brands-400.991c1c761fc31f9c3252.svg": "38d9fb997613254e98685dbd613bc2769dcde75f",
+    "/TheMusicBox/fa-regular-400.2c154b0f8c0d8d166162.woff2": "c07631a91ee71c0a1a84a3151db42b1f2d9a9692",
+    "/TheMusicBox/fa-regular-400.62a07ffeac77696f17ef.eot": "25eaf36ceec96e7f320f9abdaed39afe9873d6bb",
+    "/TheMusicBox/fa-regular-400.ac2367644e559de4ff33.ttf": "31af896ae988b97eaf61f72d7e3fb770a1f6968e",
+    "/TheMusicBox/fa-regular-400.ea5a41ec4a24ce93298e.woff": "298e5a9f355a69e0f06f48bf7db9595622668c25",
+    "/TheMusicBox/fa-regular-400.f3187c7462849ed261a8.svg": "2dbcae3137c0df57c93ce1e653390c522c6b1492",
+    "/TheMusicBox/fa-solid-900.0454203f26b33fc02e2b.svg": "2294d9f72ee4cd4811185b9da176188d9e045c4c",
+    "/TheMusicBox/fa-solid-900.3eb06c702e27fb110194.woff2": "72344eab2e7431eec313caa21f266cbfda7caf60",
+    "/TheMusicBox/fa-solid-900.6606667d9800a27eb8b5.eot": "9b47ed53b15058636a26d70f05a5bf8f505830dc",
+    "/TheMusicBox/fa-solid-900.915a0b79c22a1c1f64da.ttf": "54a19042f3232f6b58df80f01b4b018a11868096",
+    "/TheMusicBox/fa-solid-900.f4f93856730733912b1e.woff": "18d9a334e7184ae08e3a1c0468afb56a2a5b51cc",
+    "/TheMusicBox/favicon.ico": "e8acbd67d68580016192ac44ee4b73873f23704a",
+    "/TheMusicBox/index.html": "bd03b19c7e6efb417a77fe663d83a16758f933a6",
+    "/TheMusicBox/main.9c46458d93453284c67d.js": "71b7c1824b226aa52411860dead2f387a2f13a60",
+    "/TheMusicBox/manifest.webmanifest": "e589a35ff794c5a33ecd442ec9f1300e827d6b68",
+    "/TheMusicBox/polyfills.00096ed7d93ed26ee6df.js": "cfe7b0b53e96bff9ba384b4d497c08475a617d62",
+    "/TheMusicBox/runtime.7b63b9fd40098a2e8207.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/TheMusicBox/styles.fa2a071d94a89e40c52b.css": "652078041b46bb8e9707c76d5e010f7db0358e32"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

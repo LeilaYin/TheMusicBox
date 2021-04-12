@@ -15,11 +15,13 @@ export class ArtistInformationsComponent implements OnInit {
   artist$: Observable<Artist>;
   albums$: Observable<Array<Album>>
   isLoggedIn = false;
+  
   constructor(private route: ActivatedRoute, private router: Router, private artistService: ArtistService, private token: TokenStorageService) { }
 
   ngOnInit(): void {
     this.isLoggedIn = !!this.token.getToken();
     // this.artist$ = this.artistService.getArtist();
+    this.isLoggedIn = !!this.token.getToken();
     this.artist$ = this.route.paramMap.pipe(
       flatMap((params: ParamMap) => {
       const artistId = params.get('id');

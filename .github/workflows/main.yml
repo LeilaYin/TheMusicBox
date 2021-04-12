@@ -1,0 +1,56 @@
+name: Build and deploy
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: front
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@master
+        with:
+          node-version: '15.x'
+    
+      - name: Install Dependencies
+        run: npm install
+      # Runs a set of commands to build
+      - name: Build
+        run: npm run build --prod
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: front
+    # only run if build job complte successfully 
+    needs: [build] 
+    steps:
+      # building the app before deploy
+      - uses: actions/checkout@main
+      - uses: actions/setup-node@master
+        with:
+          node-version: '15.x'
+      # Install the dependencies need to build the app
+      - name: Install Dependencies
+        run: npm install
+      # build the app
+      - name: Build the app artifact for prod
+        run: npm run build --prod
+          
+      - name: Angular Deploy gh-pages Actions
+        uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.2.0
+        with:
+          github_access_token: ${{ secrets.ACCESS_TOKEN }}
+          build_configuration: production
+          angular_project_dir: front
+          build_folder: front/dist/my-app
+          base_href: /TheMusicBox/
+          deploy_branch: main
