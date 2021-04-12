@@ -72,7 +72,8 @@
             </mat-autocomplete>
           </mat-form-field>
         </form>
-
+        <!-- Search form -->
+        
         <ul class="navbar-nav ml-auto" *ngIf="!isLoggedIn" routerLinkActive="active">
           <li class="nav-item">
             <a class="nav-link" routerLink="/register">Sign Up</a>
@@ -89,9 +90,7 @@
           <li class="nav-item">
             <a class="nav-link" (click)="logout()"><i class="fas fa-power-off mr-2"></i> LogOut </a>
           </li>
-          
         </ul>
-        <!-- Search form -->
       </div>
     </div>
   </nav>
