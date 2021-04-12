@@ -1,4 +1,4 @@
-<div class="row" *ngIf="isLoggedIn">
+<div class="row">
     <div class="col-sm-3" *ngFor='let playlist of playlists$ | async'>
         <div class="card" >
             <div class="card-body text-center">
@@ -10,8 +10,4 @@
             </div>
         </div>
     </div>
-</div>
-
-<div class="container" *ngIf="!isLoggedIn">
-  <h3 class="public-user" style="text-align: center">Please login in order to access this page</h3>
 </div>

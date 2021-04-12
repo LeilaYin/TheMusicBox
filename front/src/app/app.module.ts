@@ -34,7 +34,6 @@ import { ArtistListComponent } from './artist/list/artist-list.component';
 import { ArtistInformationsComponent } from './artist/informations/artist-informations.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,

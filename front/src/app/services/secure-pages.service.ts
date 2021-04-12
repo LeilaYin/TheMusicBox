@@ -7,19 +7,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SecurePagesService implements CanActivate {
-  
+  isLoggedIn = false;
+
   constructor(public token: TokenStorageService, public router: Router) { }
-  
-  isLoggedIn = !!this.token.getToken();
 
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+    this.isLoggedIn = !!this.token.getToken();
     if(this.isLoggedIn) {
        window.alert("You are already signed in, access denied!");
        this.router.navigate(['profile'])
     }
     return true;
   }
-
 }

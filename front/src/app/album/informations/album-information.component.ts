@@ -6,7 +6,6 @@ import { flatMap } from 'rxjs/operators';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { environment } from 'src/environments/environment';
-import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -15,13 +14,11 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 export class AlbumInformationComponent implements OnInit {
     album$: Observable<Album>;
     edit: boolean;
-    isLoggedIn = false;
 
-    constructor(private route: ActivatedRoute, private router: Router, private token: TokenStorageService,
+    constructor(private route: ActivatedRoute,
                 private albumService: AlbumService, private sanitizer: DomSanitizer) {}
 
     ngOnInit(): void {
-        this.isLoggedIn = !!this.token.getToken();
         this.edit = false;
         this.album$ = this.route.paramMap.pipe(
             flatMap((params: ParamMap) => {

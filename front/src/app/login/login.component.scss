@@ -30,7 +30,15 @@ label {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
-
-.alert-success{
+.btn-primary {
+  color: #fff;
+  background-color: #304bb9;
+  border-color: #304bb9;
+}
+.btn-primary:hover {
+  background-color: #eb4f76;
+  border-color: #eb4f76;
+}
+.alert-success {
   text-align: center;
 }
