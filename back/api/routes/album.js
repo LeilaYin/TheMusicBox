@@ -48,11 +48,16 @@ module.exports = () => {
     //delete an album
     router.delete('/:id', async (req, res) => {
         if(validator.isInt(req.params.id)){
-            models.Albums.findByPk(req.params.id).then((album) => {
-                res.delete(album);
-                res.sendStatus(200);
+
+            models.Albums.destroy({
+                where: {
+                    id: req.params.id
+                }
+            }).then((album)=> {
+                res.status(200).send(true);
             }).catch((error) => {
-                res.status(500).send("There was a problem deleting the album.");
+
+                res.status(500).send("There was a problem deleting the album."+error);
             });
         }else{
             res.status(400).send("Bad parameter for deleting album, ID, must be an integer");
