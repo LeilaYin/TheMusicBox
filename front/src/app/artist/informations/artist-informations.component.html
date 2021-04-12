@@ -1,22 +1,20 @@
-<div *ngIf="isLoggedIn">
-    <div *ngIf="artist$ | async as artist; else loading">
-        <h1>Oeuvre de {{artist.ArtistName}} : </h1>
-        <div class="row"><h3>Albums :</h3></div>
-        <div class="row">
-            <div class="col-sm-3" *ngFor='let album of albums$ | async'>
-                <div class="card" >
-                    <div class="card-body text-center">
+<div *ngIf="artist$ | async as artist; else loading">
+    <h1>Oeuvre de {{artist.ArtistName}} : </h1>
+    <div class="row">
+        <h3>Albums :</h3>
+    </div>
+    <div class="row">
+        <div class="col-sm-3" *ngFor='let album of albums$ | async'>
+            <div class="card">
+                <div class="card-body text-center">
                     <h5 class="card-title text-center">{{album.AlbumName}}</h5>
                     <button type="button" class="btn btn-primary" [routerLink]="['/album', album.id]">Ecouter</button>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="container" *ngIf="!isLoggedIn">
-    <h3 class="public-user" style="text-align: center">Please login in order to access this page</h3>
-</div>
+
 <ng-template #loading>
-Loading...
+    Loading...
 </ng-template>

@@ -15,15 +15,12 @@ import { TokenStorageService } from 'src/app/services/token-storage.service';
 })
 
 export class PlaylistInformationComponent implements OnInit {
-    
     playlist$: Observable<Playlist>;
     edit: boolean;
-    isLoggedIn = false;
-    constructor(private route: ActivatedRoute, private router: Router,
-                private playlistService: PlaylistService, private sanitizer: DomSanitizer,private token: TokenStorageService) {}
+    constructor(private route: ActivatedRoute, private sanitizer: DomSanitizer,
+                private playlistService: PlaylistService) {}
 
     ngOnInit(): void {
-        this.isLoggedIn = !!this.token.getToken();
         this.edit = false;
         this.playlist$ = this.route.paramMap.pipe(
             flatMap((params: ParamMap) => {

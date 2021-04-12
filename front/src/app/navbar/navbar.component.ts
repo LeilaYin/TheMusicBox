@@ -96,13 +96,6 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['album' + '/' + num]);
   }
 
-  /*navigateOnSelectArtist(event: any): void{
-    const selected = this.myControl.value;
-    const str = selected.replace(/\d/g, '');
-    const num = selected.match(/\d/g);
-    this.router.navigate(['artist' + '/' + num]);
-  }*/
-
   // the filter user for the autocomplete in the search bar
   private _filterAlbum(value: string): Album[] {
     const filterValue = value.toLowerCase();

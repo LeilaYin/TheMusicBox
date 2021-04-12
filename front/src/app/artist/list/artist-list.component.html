@@ -1,13 +1,8 @@
-<div class="row" *ngIf="isLoggedIn">
-    <div class="col-sm-3" *ngFor='let artist of artists$ | async'>
-        <div class="card" >
-            <div class="card-body text-center">
-              <h5 class="card-title text-center">{{artist.ArtistName}}</h5>
-              <button type="button" class="btn btn-primary" [routerLink]="['/artist', artist.id]">Voir plus</button>
-            </div>
+<div class="col-sm-3" *ngFor='let artist of artists$ | async'>
+    <div class="card">
+        <div class="card-body text-center">
+            <h5 class="card-title text-center">{{artist.ArtistName}}</h5>
+            <button type="button" class="btn btn-primary" [routerLink]="['/artist', artist.id]">Voir plus</button>
         </div>
     </div>
-</div>
-<div class="container" *ngIf="!isLoggedIn">
-    <h3 class="public-user" style="text-align: center">Please login in order to access this page</h3>
 </div>

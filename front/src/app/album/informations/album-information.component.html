@@ -1,22 +1,17 @@
-<div *ngIf="isLoggedIn">
-    <div *ngIf="album$ | async as album; else loading">
-        <h1>Title : {{album.AlbumName}}</h1>
-        <div>
-            <p>Par  : {{album.Artist.ArtistName}}</p>
-        </div>
-        <div class="col-sm-3" >
-            Titres
-            <ul *ngFor='let song of album.Songs'>
-               <li>{{song.SongName}}</li>
-               <audio controls>
-                   <source [src]=transform(song.Path)  type="audio/mpeg">
-               </audio>
-            </ul>
-        </div>
+<div *ngIf="album$ | async as album; else loading">
+    <h1>Title : {{album.AlbumName}}</h1>
+    <div>
+        <p>Par : {{album.Artist.ArtistName}}</p>
     </div>
-</div>
-<div class="container" *ngIf="!isLoggedIn">
-    <h3 class="public-user" style="text-align: center">Please login in order to access this page</h3>
+    <div class="col-sm-3">
+        Titres
+        <ul *ngFor='let song of album.Songs'>
+            <li>{{song.SongName}}</li>
+            <audio controls>
+                <source [src]=transform(song.Path) type="audio/mpeg">
+            </audio>
+        </ul>
+    </div>
 </div>
 <ng-template #loading>
     Loading...
