@@ -19,6 +19,7 @@ module.exports = {
       fk_artist:{
           allowNull: false,
           type: Sequelize.INTEGER,
+          onDelete: "CASCADE",
           references:{
               model:'Artist',
               key:'id'

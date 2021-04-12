@@ -3,10 +3,6 @@ module.exports = (sequelize, DataTypes) => {
   var Playlist = sequelize.define('Playlists', {
     PlaylistName: {
       type : DataTypes.STRING,
-      validate: {
-        isAlphanumeric: {args:true,
-        msg: 'Please enter a string for the name of the playlist'}
-      }
     },
     fk_user: {
       type : DataTypes.INTEGER,

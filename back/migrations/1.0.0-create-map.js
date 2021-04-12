@@ -11,6 +11,7 @@ module.exports = {
       fk_playlist:{
           allowNull: false,
           type: Sequelize.INTEGER,
+          onDelete: "CASCADE",
           references:{
               model:'Playlist',
               key:'id'
@@ -19,6 +20,7 @@ module.exports = {
       fk_song:{
         allowNull: false,
         type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
         references:{
             model:'Song',
             key:'id'
