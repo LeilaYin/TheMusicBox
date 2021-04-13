@@ -32,7 +32,7 @@ module.exports = () => {
                     id: req.params.id
                 }
             }).then((album)=> {
-                res.status(200).send(true);
+                res.status(200).send("The user has been deleted.");
             }).catch((error) => {
                 res.status(500).send("There was a problem deleting the user. \n Error : "+error);
             });

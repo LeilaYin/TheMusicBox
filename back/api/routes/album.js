@@ -9,8 +9,9 @@ module.exports = () => {
         models.Albums.findAll({include:[{model:models.Artists,attributes:['id','ArtistName']}],attributes:['id','AlbumName']}).then((album) => {
             res.send(album);
         }).catch((error) => {
-            console.log(error);
-            res.sendStatus(500);
+            //DEBUG
+            //console.log(error);
+            res.status(500).send("There was a problem loading all albums.");
         });
     });
     // get an album
@@ -26,12 +27,12 @@ module.exports = () => {
                         model: models.Songs,
                         attributes: ['id', 'SongName', 'Path']
                     }],
-                attributes: ['id', 'AlbumName']
+                attributes: ['id', 'AlbumName','AlbumReleaseDate']
             }
             ).then((album) => {
-                res.send(album);
+                res.status(200).send(album);
             }).catch((error) => {
-                res.sendStatus(500);
+                res.status(500).send("There was a problem loading the album.");
             });
         } else {
             res.status(400).send("Bad parameter for Album ID, must be an integer");
@@ -40,8 +41,9 @@ module.exports = () => {
     // create an album
     router.post('/', (req, res) => {
         models.Albums.create(req.body).then(function(){
-            res.status(200).send();
+            res.status(200).send("The album has been created.");
         }).catch(function(err){
+            msg_err = "Error when creating a playlist. \n The body must be in JSON format and have the following form :\n { \n \"AlbumName\":\"name\", \n \"fk_artist\":1,\n \"AlbumReleaseDate\": \"yyyy/mm/dd\" \n}";
             res.status(400).send(err);
         });
     });
@@ -55,10 +57,11 @@ module.exports = () => {
                     id: req.params.id
                 }
             }).then((album)=> {
-                res.status(200).send(true);
+                res.status(200).send("The album has been deleted.");
             }).catch((error) => {
-
-                res.status(500).send("There was a problem deleting the album. \n Error : "+error);
+                // DEBUG
+                //console.log(error);
+                res.status(500).send("There was a problem deleting the album. \n");
             });
         }else{
             res.status(400).send("Bad parameter for deleting album, ID, must be an integer");

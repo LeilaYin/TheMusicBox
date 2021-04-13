@@ -18,8 +18,9 @@ module.exports = () => {
             .then((playlist) => {
                 res.send(playlist);
             }).catch((error) => {
-                console.log(error);
-                res.sendStatus(500);
+                //DEBUG
+                //console.log(error);
+                res.status(500).send("There was a problem loading all playlists.");
             });
     });
     // get a playlist
@@ -34,12 +35,14 @@ module.exports = () => {
                 attributes: ['id', 'PlaylistName']
             })
                 .then((playlist) => {
-                    res.send(playlist);
+                    res.status(200).send(playlist);
                 }).catch((error) => {
-                    res.sendStatus(500);
+                    // DEBUG
+                    //console.log(error);
+                    res.status(500).send("There was a problem loading the playlist.");
                 });
         } else {
-            res.status(400).send("Bad parameter for Playlist ID, must be an integer");
+            res.status(400).send("Bad parameter for Playlist ID, must be an integer.");
         }
     });
     // get all songs of a playlist
@@ -56,40 +59,51 @@ module.exports = () => {
             }
             ).then((playlist) => {
                 playlist.getSongs({ attributes: ['id', 'SongName', 'Path'] }).then((songs) => {
-                    res.send({ ...playlist.get({ plain: true }), songs: songs });
+                    res.status(200).send({ ...playlist.get({ plain: true }), songs: songs });
                 }).catch((error) => {
-                    console.log(error);
-                    res.sendStatus(500);
+                    // DEBUG
+                    //console.log(error);
+                    res.status(500).send("There was a problem loading the song.");
                 });
             }).catch((error) => {
-                console.log(error);
-                res.sendStatus(500);
+                // DEBUG
+                //console.log(error);
+                res.status(500).send("There was a problem loading the playlist.");
             });
         } else {
-            res.status(400).send("Bad parameter for Playlist ID, must be an integer");
+            res.status(400).send("Bad parameter for Playlist ID, must be an integer.");
         }
     });
     // create a playlist 
     router.post('/', (req, res) => {
         models.Playlists.create(req.body).then(function () {
-            res.status(200).send();
+            res.status(200).send("The playlist has been created.");
         }).catch(function (err) {
-            res.status(400).send(err);
+            // DEBUG
+            //console.log(err);
+            msg_err = "Error when creating a playlist. \n The body must be in JSON format and have the following form :\n { \n \"PlaylistName\":\"name\", \n \"fk_user\":1 \n}";
+            res.status(400).send(msg_err);
         });
     });
 
     // delete a playlist
     router.delete('/:id', async (req, res) => {
-        if (validator.isInt(req.params.id)) {
-            models.Playlists.findByPk(req.params.id).then((playlist) => {
-                res.delete(playlist);
-                res.sendStatus(200);
+        if(validator.isInt(req.params.id)){
+
+            models.Playlists.destroy({
+                where: {
+                    id: req.params.id
+                }
+            }).then((album)=> {
+                res.status(200).send("The playlist has been deleted.");
             }).catch((error) => {
+                // DEBUG
+                //console.log(error);
                 res.status(500).send("There was a problem deleting the playlist.");
             });
-        } else {
-            res.status(400).send("Bad parameter for deleting playlist, ID, must be an integer");
-        }
+        }else{
+            res.status(400).send("Bad parameter for deleting playlist, ID, must be an integer.");
+        }  
     });
 
     return router;
