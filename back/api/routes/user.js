@@ -1,8 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const models = require('../../models');
-const access = require('../controller/user.controller')
-const authJwt = require('../middleware/index');
 
 module.exports = () => {
     //return all the users

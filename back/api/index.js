@@ -20,7 +20,7 @@ module.exports = () => {
     router.use('/song',song()),
     router.use('/map',map()),
     router.use('/auth',auth()),
-    router.use('/home',home())
+    router.use('/Home',home())
     
     return router;
 };
