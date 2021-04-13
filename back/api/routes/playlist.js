@@ -95,6 +95,7 @@ module.exports = () => {
                     id: req.params.id
                 }
             }).then((album)=> {
+
                 res.status(200).send("The playlist has been deleted.");
             }).catch((error) => {
                 // DEBUG
@@ -121,7 +122,8 @@ module.exports = () => {
                 res.status(500).send("There was a problem updating the playlist. \n");
             });
         }else{
-            res.status(400).send("Bad parameter for updating playlist, ID, must be an integer");
+            res.status(400).send("Bad parameter for deleting playlist, ID, must be an integer");
+
         }  
     });
 
