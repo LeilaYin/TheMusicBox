@@ -107,7 +107,7 @@ module.exports = () => {
         });
     });
 
-    //delete an artist
+    // delete an artist
     router.delete('/:id', async (req, res) => {
         if(validator.isInt(req.params.id)){
 

@@ -46,7 +46,7 @@ module.exports = () => {
         });
     });
 
-    //delete an album
+    // delete an album
     router.delete('/:id', async (req, res) => {
         if(validator.isInt(req.params.id)){
 
