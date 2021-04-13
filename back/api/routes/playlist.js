@@ -89,10 +89,10 @@ module.exports = () => {
                 res.status(200).send("The playlist " + req.params.id + " was deleted");
             }).catch((error) => {
     
-                res.status(500).send("There was a problem deleting the artist. \n Error : "+error);
+                res.status(500).send("There was a problem deleting the playlist. \n Error : "+error);
             });
         }else{
-            res.status(400).send("Bad parameter for deleting artist, ID, must be an integer");
+            res.status(400).send("Bad parameter for deleting playlists, ID, must be an integer");
         }  
     });
 
