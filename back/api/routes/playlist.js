@@ -72,7 +72,7 @@ module.exports = () => {
     // create a playlist 
     router.post('/', (req, res) => {
         models.Playlists.create(req.body).then(function () {
-            res.status(200).send();
+            res.status(200).send("The playlist creation was successfull");
         }).catch(function (err) {
             res.status(400).send(err);
         });
@@ -81,15 +81,19 @@ module.exports = () => {
     // delete a playlist
     router.delete('/:id', async (req, res) => {
         if (validator.isInt(req.params.id)) {
-            models.Playlists.findByPk(req.params.id).then((playlist) => {
-                res.delete(playlist);
-                res.sendStatus(200);
+            models.Playlists.destroy({
+                where: {
+                    id: req.params.id
+                }
+            }).then((album)=> {
+                res.status(200).send("The playlist " + req.params.id + " was deleted");
             }).catch((error) => {
-                res.status(500).send("There was a problem deleting the playlist.");
+    
+                res.status(500).send("There was a problem deleting the artist. \n Error : "+error);
             });
-        } else {
-            res.status(400).send("Bad parameter for deleting playlist, ID, must be an integer");
-        }
+        }else{
+            res.status(400).send("Bad parameter for deleting artist, ID, must be an integer");
+        }  
     });
 
     return router;

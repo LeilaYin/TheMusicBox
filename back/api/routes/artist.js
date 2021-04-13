@@ -101,7 +101,7 @@ module.exports = () => {
     // create an artist
     router.post('/', (req, res) => {
         models.Artists.create(req.body).then(function(){
-            res.status(200).send();
+            res.status(200).send("The artist creation was successfull");
         }).catch(function(err){
             res.status(400).send(err);
         });
@@ -116,7 +116,7 @@ module.exports = () => {
                     id: req.params.id
                 }
             }).then((album)=> {
-                res.status(200).send(true);
+                res.status(200).send("The artist " + req.params.id + " was deleted");
             }).catch((error) => {
 
                 res.status(500).send("There was a problem deleting the artist. \n Error : "+error);

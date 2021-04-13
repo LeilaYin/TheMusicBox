@@ -40,7 +40,7 @@ module.exports = () => {
     // create an album
     router.post('/', (req, res) => {
         models.Albums.create(req.body).then(function(){
-            res.status(200).send();
+            res.status(200).send("The album creation was successfull");
         }).catch(function(err){
             res.status(400).send(err);
         });
@@ -55,7 +55,7 @@ module.exports = () => {
                     id: req.params.id
                 }
             }).then((album)=> {
-                res.status(200).send(true);
+                res.status(200).send("The Album " + req.params.id + " was deleted");
             }).catch((error) => {
 
                 res.status(500).send("There was a problem deleting the album. \n Error : "+error);
