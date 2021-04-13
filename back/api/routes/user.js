@@ -2,8 +2,10 @@ const express = require('express');
 const router = express.Router();
 const models = require('../../models');
 
+const validator = require('validator');
+
 module.exports = () => {
-    //return all the users
+    // return all the users
     router.get('/', async (req, res) => {
         models.Users.findAll({attributes:['id','pseudo']}).then((user) => {
             res.status(200).send(user);
@@ -12,7 +14,7 @@ module.exports = () => {
         });
     });
 
-    //get a single user
+    // get a single user
     router.get('/:id', async (req, res) => {
         models.Users.findByPk(req.params.id,{attributes:['id','pseudo']}).then((user) => {
             res.status(200).send(user);
@@ -21,17 +23,25 @@ module.exports = () => {
         });
     });
 
-    //delete a user
+    // delete a user
     router.delete('/:id', async (req, res) => {
-        models.Users.findByPk(req.params.id).then((user) => {
-            res.delete(user);
-            res.sendStatus(200);
-        }).catch((error) => {
-            res.status(500).send("There was a problem deleting the user");
-        });
+        if(validator.isInt(req.params.id)){
+
+            models.Users.destroy({
+                where: {
+                    id: req.params.id
+                }
+            }).then((album)=> {
+                res.status(200).send(true);
+            }).catch((error) => {
+                res.status(500).send("There was a problem deleting the user. \n Error : "+error);
+            });
+        } else {
+            res.status(400).send("Bad parameter for deleting User, ID, must be an integer");
+        }  
     });
 
-    //update a user
+    // update a user
     router.put('/:id', async (req, res) => {
         models.Users.findByPk(req.params.id).then((user) => {
             res.status(200).set(req.body);

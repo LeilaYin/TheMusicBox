@@ -3,10 +3,6 @@ module.exports = (sequelize, DataTypes) => {
   var Albums = sequelize.define('Albums', {
     AlbumName: {
       type : DataTypes.STRING,
-      validate: {
-        isAlphanumeric: {args:true,
-        msg: 'Please enter a string album name'}
-      }
     },
     fk_artist: {
       type: DataTypes.INTEGER,
