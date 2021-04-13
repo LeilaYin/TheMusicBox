@@ -106,5 +106,24 @@ module.exports = () => {
         }  
     });
 
+    //update playlist
+    router.put('/:id',(req, res) => {
+        if(validator.isInt(req.params.id)){
+            models.Playlists.update(req.body, {
+                where: {
+                    id: req.params.id
+                }
+            }).then((playlist)=> {
+                res.status(200).send("The playlist has been updated.");
+            }).catch((error) => {
+                // DEBUG
+                //console.log(error);
+                res.status(500).send("There was a problem updating the playlist. \n");
+            });
+        }else{
+            res.status(400).send("Bad parameter for updating playlist, ID, must be an integer");
+        }  
+    });
+
     return router;
 };

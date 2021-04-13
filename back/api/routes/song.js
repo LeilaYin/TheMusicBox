@@ -61,5 +61,24 @@ module.exports = () => {
         }
     });
 
+    //update song
+    router.put('/:id',(req, res) => {
+        if(validator.isInt(req.params.id)){
+            models.Songs.update(req.body, {
+                where: {
+                    id: req.params.id
+                }
+            }).then((song)=> {
+                res.status(200).send("The song has been updated.");
+            }).catch((error) => {
+                // DEBUG
+                //console.log(error);
+                res.status(500).send("There was a problem updating the song. \n");
+            });
+        }else{
+            res.status(400).send("Bad parameter for updating song, ID, must be an integer");
+        }  
+    });
+
     return router;
 };

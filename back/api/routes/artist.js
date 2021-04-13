@@ -135,5 +135,49 @@ module.exports = () => {
         }  
     });
 
+    //add an ablbum to an artist
+    router.post('/:id/album', (req, res) => {
+        if(validator.isInt(req.params.id)){
+            models.Artists.findByPk(req.params.id,{attributes:['id','ArtistName']}).then((artist) => {
+                var obj = JSON.parse(JSON.stringify(artist));
+                models.Albums.create({
+                    AlbumName: req.body.AlbumName,
+                    fk_artist: obj.id,
+                    AlbumReleaseDate: req.body.AlbumReleaseDate 
+                }).then((album) => {
+                    res.status(200).send("The album has been created.");
+                }).catch(function(err){
+                    msg_err = "Error when creating a playlist. \n The body must be in JSON format and have the following form :\n { \n \"AlbumName\":\"name\", \n \"fk_artist\":1,\n \"AlbumReleaseDate\": \"yyyy/mm/dd\" \n}";
+                    res.status(400).send(err);
+                });
+
+            }).catch((error) => {
+                res.status(500).send("There was a problem loading the artist.");
+            });
+            
+        }else{
+            res.status(400).send("Bad parameter for deleting album, ID, must be an integer");
+        } 
+    });
+
+    //update artist
+    router.put('/:id',(req, res) => {
+        if(validator.isInt(req.params.id)){
+            models.Artists.update(req.body, {
+                where: {
+                    id: req.params.id
+                }
+            }).then((artist)=> {
+                res.status(200).send("The artist has been updated.");
+            }).catch((error) => {
+                // DEBUG
+                //console.log(error);
+                res.status(500).send("There was a problem updating the artist. \n");
+            });
+        }else{
+            res.status(400).send("Bad parameter for updating artist, ID, must be an integer");
+        }  
+    });
+
     return router;
 };
