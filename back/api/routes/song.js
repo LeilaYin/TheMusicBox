@@ -28,7 +28,7 @@ module.exports = () => {
     // create a song 
     router.post('/', (req, res) => {
         models.Songs.create(req.body).then(function () {
-            res.status(200).send();
+            res.status(200).send("The song creation was successfull");
         }).catch(function (err) {
             res.status(400).send(err);
         });
@@ -44,7 +44,7 @@ module.exports = () => {
                     id: req.params.id
                 }
             }).then((album)=> {
-                res.status(200).send(true);
+                res.status(200).send("The song " + req.params.id + " was deleted");
             }).catch((error) => {
 
                 res.status(500).send("There was a problem deleting the songs. \n Error : "+error);
