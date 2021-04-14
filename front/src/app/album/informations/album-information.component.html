@@ -1,10 +1,10 @@
 <div *ngIf="album$ | async as album; else loading">
     <h1>Title : {{album.AlbumName}}</h1>
     <div>
-        <p>Par : {{album.Artist.ArtistName}}</p>
+        <p>By : {{album.Artist.ArtistName}}</p>
     </div>
     <div class="col-sm-3">
-        Titres
+        Titles
         <ul *ngFor='let song of album.Songs'>
             <li>{{song.SongName}}</li>
             <audio controls>

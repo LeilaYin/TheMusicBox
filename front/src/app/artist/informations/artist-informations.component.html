@@ -1,5 +1,5 @@
 <div *ngIf="artist$ | async as artist; else loading">
-    <h1>Oeuvre de {{artist.ArtistName}} : </h1>
+    <h1>Artwork by {{artist.ArtistName}} : </h1>
     <div class="row">
         <h3>Albums :</h3>
     </div>
@@ -8,7 +8,20 @@
             <div class="card">
                 <div class="card-body text-center">
                     <h5 class="card-title text-center">{{album.AlbumName}}</h5>
-                    <button type="button" class="btn btn-primary" [routerLink]="['/album', album.id]">Ecouter</button>
+                    <button type="button" class="btn btn-primary" [routerLink]="['/album', album.id]">Listen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h3>Songs :</h3>
+    </div>
+    <div class="row">
+        <div class="col-sm-3" *ngFor='let song of songs$ | async'>
+            <div class="card">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-center">{{song.SongName}}</h5>
+                    <button type="button" class="btn btn-primary" [routerLink]="['/album', song.fk_album]">Listen</button>
                 </div>
             </div>
         </div>

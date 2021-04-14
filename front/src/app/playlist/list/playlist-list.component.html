@@ -4,9 +4,9 @@
             <div class="card-body text-center">
               <h5 class="card-title text-center">{{playlist.PlaylistName}}</h5>
               <p class="card-text">
-                Par : {{playlist.createdBy.pseudo}}
+                By : {{playlist.createdBy.pseudo}}
               </p>
-              <button type="button" class="btn btn-primary" [routerLink]="['/playlist', playlist.id]">Ecouter</button>
+              <button type="button" class="btn btn-primary" [routerLink]="['/playlist', playlist.id]">Listen</button>
             </div>
         </div>
     </div>
