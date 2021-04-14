@@ -1,10 +1,10 @@
 <div *ngIf="playlist$ | async as playlist; else loading">
     <h1>Title : {{playlist.PlaylistName}}</h1>
     <div>
-        <p>Créé par : {{playlist.createdBy.pseudo}}</p>
+        <p>By : {{playlist.createdBy.pseudo}}</p>
     </div>
     <div class="col-sm-3">
-        Titres
+        Titles
         <ul *ngFor='let song of playlist.songs'>
             <li>{{song.SongName}}</li>
             <audio controls>

@@ -4,9 +4,9 @@
     <div class="card-body text-center">
       <h5 class="card-title text-center">{{album.AlbumName}}</h5>
       <p class="card-text">
-        Par : {{album.Artist.ArtistName}}
+        By : {{album.Artist.ArtistName}}
       </p>
-      <button type="button" class="btn btn-primary" [routerLink]="['/album', album.id]">Ecouter</button>
+      <button type="button" class="btn btn-primary" [routerLink]="['/album', album.id]">Listen</button>
     </div>
   </div>
 </div>
