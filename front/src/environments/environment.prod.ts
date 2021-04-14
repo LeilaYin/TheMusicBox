@@ -5,6 +5,6 @@
 };*/
 export const environment = {
   production: false,
-  api: 'https://backtmb.rvende.repl.co',
+  api: 'https://backtmb.rvende.repl.co/api',
   media: 'https://mediatmb.rvende.repl.co',
 };

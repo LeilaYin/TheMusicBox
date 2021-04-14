@@ -9,8 +9,8 @@
 };*/
 export const environment = {
   production: false,
-  api: 'https://backtmb.rvende.repl.co:3000/api',
-  media: 'https://mediatmb.rvende.repl.co:4343',
+  api: 'https://backtmb.rvende.repl.co/api',
+  media: 'https://mediatmb.rvende.repl.co',
 };
 /*
  * For easier debugging in development mode, you can import the following file
