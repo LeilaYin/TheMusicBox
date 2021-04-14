@@ -1,8 +1,10 @@
-<div class="col-sm-3" *ngFor='let artist of artists$ | async'>
-    <div class="card">
-        <div class="card-body text-center">
-            <h5 class="card-title text-center">{{artist.ArtistName}}</h5>
-            <button type="button" class="btn btn-primary" [routerLink]="['/artist', artist.id]">Voir plus</button>
+<div class="row">
+    <div class="col-sm-3" *ngFor='let artist of artists$ | async'>
+        <div class="card">
+            <div class="card-body text-center">
+                <h5 class="card-title text-center">{{artist.ArtistName}}</h5>
+                <button type="button" class="btn btn-primary" [routerLink]="['/artist', artist.id]">Voir plus</button>
+            </div>
         </div>
     </div>
 </div>

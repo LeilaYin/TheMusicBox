@@ -2,11 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   var Songs = sequelize.define('Songs', {
     SongName: {
-      type : DataTypes.STRING, 
-      validate: {
-        isAlphanumeric: {args:true,
-        msg: 'Please enter a real song name'}
-      }
+      type : DataTypes.STRING,
     },
     Path: {
       type : DataTypes.STRING,
