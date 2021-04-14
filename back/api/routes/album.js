@@ -71,17 +71,36 @@ module.exports = () => {
     //update album
     router.put('/:id',(req, res) => {
         if(validator.isInt(req.params.id)){
-            models.Albums.update(req.body, {
-                where: {
-                    id: req.params.id
-                }
-            }).then((album)=> {
-                res.status(200).send("The album has been updated.");
+            models.Albums.findByPk(req.params.id, {
+                include: [
+                    {
+                        model: models.Artists,
+                        attributes: ['id', 'ArtistName']
+                    },
+                    {
+                        model: models.Songs,
+                        attributes: ['id', 'SongName', 'Path']
+                    }],
+                attributes: ['id', 'AlbumName','AlbumReleaseDate']
+            }
+            ).then((album) => {
+                var obj = JSON.parse(JSON.stringify(album));
+                models.Albums.update(req.body, {
+                    where: {
+                        id: obj.id
+                    }
+                }).then((album)=> {
+                    res.status(200).send("The album has been updated.");
+                }).catch((error) => {
+                    // DEBUG
+                    //console.log(error);
+                    res.status(500).send("There was a problem updating the album. Bad body. \n");
+                });
             }).catch((error) => {
-                // DEBUG
-                //console.log(error);
-                res.status(500).send("There was a problem updating the album. \n");
+                res.status(500).send("There was a problem updating the album, unknown id.");
             });
+
+            
         }else{
             res.status(400).send("Bad parameter for updating album, ID, must be an integer");
         }  
