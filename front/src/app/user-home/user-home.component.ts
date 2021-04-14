@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Album } from '../models/albums';
+import { AlbumService } from '../services/album.service';
 
 @Component({
   selector: 'app-user-home',
@@ -7,9 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserHomeComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-
   }
 }
+

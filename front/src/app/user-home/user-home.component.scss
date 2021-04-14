@@ -1,3 +1,21 @@
-.current-user {
+.all {
+    font: 400 15px/1.8 "Lato", sans-serif;
+}
+.float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.float-child {
+    // margin: 5px;
+    // background-color: #2146ae2e;
+    width: 50%;
+    float: left;
+    padding: 20px;
+    border: 2px solid #e91e6340;
+    box-shadow: 5px 5px #aaa;
+}
+
+h2, h4{
     text-align: center;
 }

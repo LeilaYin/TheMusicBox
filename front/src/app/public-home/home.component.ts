@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 import { Album } from '../models/albums';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,16 @@ export class HomeComponent implements OnInit {
   content?: string; // used to display either public or user info
   albums: Album[];
 
-  constructor(private userService: UserService) { }
+  home = {
+    title: 'Home',
+    subtitle: 'Welcome Home!',
+    content: 'Some home content.',
+    image: '../assets/background-large.jpg'
+  };
+
+
+
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     /* this.userService.getPublicContent().subscribe( data => {
@@ -22,5 +32,7 @@ export class HomeComponent implements OnInit {
       this.content = JSON.parse(err.error).message;
     }); */
   }
-//   getUrl() { return "url('../../assets/wallpapers/wallpaper3.jpeg')"; }
+  onClick(){
+    this.router.navigate(['register'])
+  }
 }

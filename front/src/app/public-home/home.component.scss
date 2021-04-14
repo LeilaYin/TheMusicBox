@@ -1,0 +1,45 @@
+body {
+    height: 100%;
+    margin: 0;
+    font: 400 15px/1.8 "Lato", sans-serif;
+    color: #777;
+    padding: 30%;
+    background-image: url("../../assets/wallpaper.jpg");
+    position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.90;
+}
+
+.caption {
+    margin: 0%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #777;
+  }
+  .caption span.border {
+    background-color: #111;
+    color: white;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+  }
+   p {text-align: center;
+    padding-top: 10px;
+    color: black;
+    font-size: 25px;
+    letter-spacing: 10px;
+  }
+
+.btn {
+    color: black;
+    background-color: #e092a6bf;
+    border-color: black;
+  }
+  .btn:hover {
+      background-color: #684849c9;
+  }

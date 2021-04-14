@@ -9,7 +9,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-artist',
-  templateUrl: './artist-informations.component.html',
+  templateUrl: './artist-informations.component.html'
 })
 export class ArtistInformationsComponent implements OnInit {
   artist$: Observable<Artist>;
