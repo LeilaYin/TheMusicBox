@@ -31,7 +31,7 @@
   "dataGroups": [
     {
       "name" : "albumList",
-      "urls": ["https://backtmb.rvende.repl.co:3000/api/album","https://mediatmb.rvende.repl.co:4343"],
+      "urls": ["https://backtmb.rvende.repl.co/api/album","https://mediatmb.rvende.repl.co"],
       "cacheConfig": {
         "maxSize": 1024,
         "maxAge": "1d",
@@ -40,7 +40,7 @@
     },
     {
       "name" : "PlaylistList",
-      "urls": ["https://backtmb.rvende.repl.co:3000/api/playlist","https://mediatmb.rvende.repl.co:4343"],
+      "urls": ["https://backtmb.rvende.repl.co/api/playlist","https://mediatmb.rvende.repl.co"],
       "cacheConfig": {
         "maxSize": 1024,
         "maxAge": "1d",
@@ -49,7 +49,7 @@
     },
     {
       "name" : "ArtistList",
-      "urls": ["https://backtmb.rvende.repl.co:3000/api/artist","https://mediatmb.rvende.repl.co:4343"],
+      "urls": ["https://backtmb.rvende.repl.co/api/artist","https://mediatmb.rvende.repl.co"],
       "cacheConfig": {
         "maxSize": 1024,
         "maxAge": "1d",
