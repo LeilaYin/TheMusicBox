@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1618428714759,
+  "timestamp": 1618429443428,
   "index": "/TheMusicBox/index.html",
   "assetGroups": [
     {
@@ -64,8 +64,8 @@
     {
       "name": "albumList",
       "patterns": [
-        "\\/TheMusicBox\\/localhost:3000\\/api\\/album",
-        "\\/TheMusicBox\\/localhost:4343"
+        "https:\\/\\/backtmb\\.rvende\\.repl\\.co:3000\\/api\\/album",
+        "https:\\/\\/mediatmb\\.rvende\\.repl\\.co:4343"
       ],
       "strategy": "performance",
       "maxSize": 1024,
@@ -78,8 +78,8 @@
     {
       "name": "PlaylistList",
       "patterns": [
-        "\\/TheMusicBox\\/localhost:3000\\/api\\/playlist",
-        "\\/TheMusicBox\\/localhost:4343"
+        "https:\\/\\/backtmb\\.rvende\\.repl\\.co:3000\\/api\\/playlist",
+        "https:\\/\\/mediatmb\\.rvende\\.repl\\.co:4343"
       ],
       "strategy": "performance",
       "maxSize": 1024,
@@ -92,8 +92,8 @@
     {
       "name": "ArtistList",
       "patterns": [
-        "\\/TheMusicBox\\/localhost:3000\\/api\\/artist",
-        "\\/TheMusicBox\\/localhost:4343"
+        "https:\\/\\/backtmb\\.rvende\\.repl\\.co:3000\\/api\\/artist",
+        "https:\\/\\/mediatmb\\.rvende\\.repl\\.co:4343"
       ],
       "strategy": "performance",
       "maxSize": 1024,
