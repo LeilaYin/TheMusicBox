@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "05a1f722-3ba1-404e-99a0-6690d035281e",
+		"_postman_id": "5f647a99-7b49-46d0-a9c1-e6be16511fff",
 		"name": "The Music Box",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -9,15 +9,17 @@
 			"name": "Create Song",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"SongName\": \"FirstSong\",\r\n    \"SongReleaseDate\": \"11/03/2021\",\r\n    \"Path\" : \"/media/song1.mp3\",\r\n    \"fk_album\": 1,\r\n    \"fk_artist\": 1\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": "{\r\n    \"SongName\": \"FirstSong\",\r\n    \"SongReleaseDate\": \"11/03/2021\",\r\n    \"Path\" : \"/media/song1.mp3\",\r\n    \"fk_album\": 4,\r\n    \"fk_artist\": 3\r\n}"
 				},
 				"url": {
 					"raw": "http://localhost:3000/api/song",
@@ -35,70 +37,16 @@
 			"response": []
 		},
 		{
-			"name": "Create Artist",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"ArtistName\": \"An Other Artist\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/artist",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"artist"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Album",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"AlbumName\": \"Other Album\",\r\n    \"fk_artist\": 1,\r\n    \"AlbumReleaseDate\" : \"2021/12/03\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/album",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"album"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get list artist",
+			"name": "Get Song",
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://localhost:3000/api/artist",
+					"raw": "http://localhost:3000/api/song/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -106,27 +54,8 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"artist"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get list album",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/album",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"album"
+						"song",
+						"1"
 					]
 				}
 			},
@@ -137,6 +66,10 @@
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "http://localhost:3000/api/song",
 					"protocol": "http",
@@ -153,191 +86,69 @@
 			"response": []
 		},
 		{
-			"name": "Get list user",
+			"name": "Delete Song",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/song/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"song",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Artist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ArtistName\": \"Artist\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/artist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"artist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Artist",
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "http://localhost:3000/api/user",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"user"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Playlist",
-			"request": {
-				"method": "POST",
-				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"PlaylistName\" : \"First Playlist\",\r\n    \"fk_user\" : \"jean michel\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/playlist",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"playlist"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get playlist",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"fk_playlist\" : 1,\r\n    \"fk_song\": 1\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/playlist",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"playlist"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update album",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"AlbumName\": \"Other Album\",\r\n    \"fk_artist\": 1,\r\n    \"AlbumReleaseDate\" : \"2021/12/03\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/album/1",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"album",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Album via Artist",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"AlbumName\": \"Album via Artist 2\",\r\n    \"AlbumReleaseDate\" : \"2021/12/03\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/artist/1/album",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"artist",
-						"1",
-						"album"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Create Song via Album",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"SongName\": \"Song Via Album 2\",\r\n    \"SongReleaseDate\": \"11/03/2021\",\r\n    \"Path\" : \"/media/song1.mp3\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:3000/api/album/1/song",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"album",
-						"1",
-						"song"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update Artist",
-			"request": {
-				"method": "PUT",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"ArtistName\": \"An Artist 2\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": ""
 				},
 				"url": {
 					"raw": "http://localhost:3000/api/artist/1",
@@ -356,21 +167,16 @@
 			"response": []
 		},
 		{
-			"name": "Update Song",
+			"name": "Get list artist",
 			"request": {
-				"method": "PUT",
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"SongName\": \"First Song2\",\r\n    \"SongReleaseDate\": \"11/03/2021\",\r\n    \"Path\" : \"/media/song1.mp3\",\r\n    \"fk_album\": 1,\r\n    \"fk_artist\": 1\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/song/1",
+					"raw": "http://localhost:3000/api/artist",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -378,8 +184,428 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"song",
+						"artist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Artist",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/artist/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"artist",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Album",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AlbumName\": \"AnotherExtraordinaryAlbum\",\r\n    \"fk_artist\": 3,\r\n    \"AlbumReleaseDate\" : \"08/03/2021\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/album",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"album"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Album",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/album/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"album",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get list album",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/album",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"album"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Album",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/album/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"album",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Playlist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"PlaylistName\" : \"Second Playlist\",\r\n    \"fk_user\" : 5\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/playlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"playlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Playlist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/playlist/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"playlist",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get list playlist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/playlist/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"playlist",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Playlist",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/playlist/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"playlist",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "pseudo",
+							"value": "Second user",
+							"type": "text"
+						},
+						{
+							"key": "pass",
+							"value": "1234",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get list User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"pseudo\": \"First user\",\n\t\"pass\": \"1234\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "pseudo",
+						"value": "First user",
+						"type": "text"
+					},
+					{
+						"key": "pass",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"4"
 					]
 				}
 			},
