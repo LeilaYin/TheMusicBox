@@ -4,8 +4,9 @@ import { Album } from 'src/app/models/albums';
 import { Observable } from 'rxjs';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './album-list.component.html'
+  selector: 'app-list-album',
+  templateUrl: './album-list.component.html',
+  styleUrls: ['./album-list.component.scss']
 })
 export class AlbumListComponent implements OnInit {
   albums$: Observable<Array<Album>>

@@ -4,7 +4,7 @@ import { Artist } from 'src/app/models/artist';
 import { ArtistService } from 'src/app/services/artist.service';
 
 @Component({
-  selector: 'app-artist',
+  selector: 'app-list-artist',
   templateUrl: './artist-list.component.html',
   styleUrls: ['./artist-list.component.scss']
 })
