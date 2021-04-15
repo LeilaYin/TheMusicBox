@@ -6,7 +6,7 @@ module.exports = () => {
     // get all the songs of a playlist
     router.get('/', async (req, res) => {
         models.MapPlaylistSongs.findAll().then((map) => {
-            res.send(map);
+            res.status(200).send(map);
         }).catch((error) => {
             console.log(error);
             res.sendStatus(500);
@@ -16,7 +16,7 @@ module.exports = () => {
     router.get('/:id', async (req, res) => {
         if(validator.isInt(req.params.id)){
             models.MapPlaylistSongs.findByPk(req.params.id).then((map) => {
-                res.send(map);
+                res.status(200).send(map);
             }).catch((error) => {
                 res.sendStatus(500);
             });
