@@ -86,6 +86,38 @@
 			"response": []
 		},
 		{
+			"name": "Update song",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"SongName\": \"First Song2\",\r\n    \"SongReleaseDate\": \"11/03/2021\",\r\n    \"Path\" : \"/media/song1.mp3\",\r\n    \"fk_album\": 1,\r\n    \"fk_artist\": 1\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/song/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"song",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Delete Song",
 			"request": {
 				"method": "DELETE",
@@ -176,7 +208,38 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/artist/",
+					"raw": "http://localhost:3000/api/artist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"artist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update artist",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ArtistName\": \"An Artist 2\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/artist/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -185,7 +248,7 @@
 					"path": [
 						"api",
 						"artist",
-						""
+						"1"
 					]
 				}
 			},
@@ -233,7 +296,7 @@
 					"raw": "{\r\n    \"AlbumName\": \"AnotherExtraordinaryAlbum\",\r\n    \"fk_artist\": 3,\r\n    \"AlbumReleaseDate\" : \"08/03/2021\"\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/album/",
+					"raw": "http://localhost:3000/api/album",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -241,8 +304,7 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"album",
-						""
+						"album"
 					]
 				}
 			},
@@ -298,6 +360,38 @@
 			"response": []
 		},
 		{
+			"name": "Update album",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AlbumName\": \"Other Album\",\r\n    \"fk_artist\": 1,\r\n    \"AlbumReleaseDate\" : \"2021/12/03\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/album/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"album",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Delete Album",
 			"request": {
 				"method": "DELETE",
@@ -317,6 +411,72 @@
 						"api",
 						"album",
 						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create album via artist",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"AlbumName\": \"Album via Artist 2\",\r\n    \"AlbumReleaseDate\" : \"2021/12/03\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/artist/1/album",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"artist",
+						"1",
+						"album"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create song via album",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"SongName\": \"Song Via Album 2\",\r\n    \"SongReleaseDate\": \"11/03/2021\",\r\n    \"Path\" : \"/media/song1.mp3\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/album/1/song",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"album",
+						"1",
+						"song"
 					]
 				}
 			},
@@ -404,6 +564,38 @@
 			"response": []
 		},
 		{
+			"name": "Update Playlist",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"PlaylistName\" : \"This is a Playlist\",\r\n    \"fk_user\" : 5\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/playlist/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"playlist",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Delete Playlist",
 			"request": {
 				"method": "DELETE",
@@ -445,7 +637,7 @@
 					"urlencoded": [
 						{
 							"key": "pseudo",
-							"value": "Second user",
+							"value": "Third user",
 							"type": "text"
 						},
 						{
@@ -583,6 +775,38 @@
 						"api",
 						"auth",
 						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pseudo\": \"This is a user\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"1"
 					]
 				}
 			},
