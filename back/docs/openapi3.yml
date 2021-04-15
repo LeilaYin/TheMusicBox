@@ -3,6 +3,8 @@ openapi: 3.0.0
 servers:
   - description: localhost
     url: http://localhost:3000/api/
+  - description: online
+    url: https://replit.com/@rvende/backtmb#.replit
 info:
   description: The Music Box
   version: "1.0.0"
@@ -1102,33 +1104,83 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/home'             
+                  $ref: '#/components/schemas/home'
 components:
   schemas:
-    Book:
+    artists:
       type: object
       required:
-        - id
-        - title
-        - description
-        - createdAt
-        - updatedAt
+        - ArtistName
       properties:
-        id:
+        ArtistName:
           type: string
+    albums:
+      type: object
+      required:
+        - AlbumName
+        - fk_artist
+      properties:
+        AlbumName:
+          type: string
+        fk_artist:
+          type: integer
           format: id
-          example: 42
-        title:
-          type: string
-          example: Lord of the ring
-        description:
-          type: string
-          example: Somebody lost his rings
-        createdAt:
-          type: string
+        AlbumReleaseDate:
+          type: date
           format: date-time
           example: '2016-08-29T09:12:33.001Z'
-        updatedAt:
+    song:
+      type: object
+      required:
+        - SongName
+        - Path
+        - fk_album
+        - fk_artist
+      properties:
+        SongName:
           type: string
+        Path:
+          type: string
+        fk_album:
+          type: integer
+          format: id
+        fk_artist:
+          type: integer
+          format: id
+        SongReleaseDate:
+          type: date
           format: date-time
-          example: '2016-08-29T09:12:33.001Z'
+          example: '2016-08-29T09:12:33.001Z'        
+    user:
+      type: object
+      required:
+        - pseudo
+        - pass
+      properties:
+        pseudo:
+          type: string
+        pass:
+          type: string
+    playlist:
+      type: object
+      required:
+        - PlaylistName
+        - fk_user
+      properties:
+        PlaylistName:
+          type: string
+        fk_user:
+          type: integer
+          format: id
+    map:
+      type: object
+      required:
+        - fk_playlist
+        - fk_song
+      properties:
+        fk_playlist:
+          type: integer
+          format: id
+        fk_song:
+          type: integer
+          format: id
