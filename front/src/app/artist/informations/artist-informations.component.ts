@@ -19,17 +19,11 @@ export class ArtistInformationsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private artistService: ArtistService) { }
 
   ngOnInit(): void {
-    // this.artist$ = this.artistService.getArtist();
     this.artist$ = this.route.paramMap.pipe(
       flatMap((params: ParamMap) => {
         const artistId = params.get('id');
-        // this.albums$ =
         this.albums$ = this.artistService.getAlbumArtist(artistId);
         this.songs$ = this.artistService.getSongsArtist(artistId);
-        //console.log('ALBUM');
-        /*this.albums$.subscribe(opportunities => {
-          console.log(opportunities);
-        });*/
         return this.artistService.getArtist(artistId);
       }));
   }

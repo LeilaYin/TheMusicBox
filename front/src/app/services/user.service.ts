@@ -9,9 +9,6 @@ import { environment } from 'src/environments/environment';
 export class UserService {
   constructor(private http: HttpClient) { }
 
-  /*getPublicContent(): Observable<any> {
-    return this.http.get(environment.api + 'home', { responseType: 'text' });
-  }*/
   getUserBoard(): Observable<any> {
     return this.http.get(environment.api + '/auth/up', { responseType: 'text' });
   }
