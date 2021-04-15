@@ -41,13 +41,23 @@ module.exports = () => {
         }  
     });
 
-    // update a user
-    router.put('/:id', async (req, res) => {
-        models.Users.findByPk(req.params.id).then((user) => {
-            res.status(200).set(req.body);
-        }).catch((error) => {
-            res.status(500).send("There was a problem updating the user.");
-        });
+    // update user
+    router.put('/:id',(req, res) => {
+        if(validator.isInt(req.params.id)){
+            models.Users.update(req.body, {
+                where: {
+                    id: req.params.id
+                }
+            }).then((artist)=> {
+                res.status(200).send("The user has been updated.");
+            }).catch((error) => {
+                // DEBUG
+                //console.log(error);
+                res.status(500).send("There was a problem updating the user. \n");
+            });
+        } else {
+            res.status(400).send("Bad parameter for updating user, ID, must be an integer");
+        }  
     });
     
     return router;

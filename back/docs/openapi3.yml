@@ -2,27 +2,43 @@ openapi: 3.0.0
 # Added by API Auto Mocking Plugin
 servers:
   - description: localhost
-    url: http://localhost:3000/api/v1
+    url: http://localhost:3000/api/
+  - description: online
+    url: https://replit.com/@rvende/backtmb#.replit
 info:
-  description: Cloud TP1
+  description: The Music Box
   version: "1.0.0"
-  title: Cloud TP1
+  title: The Music Box
   contact:
     email: nocompany@gmail.com
   license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 tags:
-  - name: books
-    description: API pour mes bouquins
+  - name: album
+    description: API pour les albums
+  - name: artist
+    description: API pour les artists
+  - name: playlist
+    description: API pour les playlists
+  - name: song
+    description: API pour les musqiques
+  - name: user
+    description: API pour les users
+  - name: map
+    description: API pour les musique dans une playlist
+  - name: auth
+    description: API pour l'authentification
+  - name: home
+    description: API pour la page d'accueil
 paths:
-  /inventory:
+  /album:
     get:
       tags:
-        - books
-      summary: récupère tous les livres
-      operationId: searchAll
-      description: récupère tous les livres
+        - album
+      summary: récupère tous les albums
+      operationId: findAll
+      description: récupère tous les albums
       responses:
         '200':
           description: OK
@@ -31,33 +47,1140 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Book'
+                  $ref: '#/components/schemas/albums'
+        '500':
+          description: KO
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/albums'
+    post:
+      tags:
+        - album
+      summary: créér un album
+      operationId: create
+      description: créér un album
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/albums'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/albums' 
+  /album/:id:
+    get:
+      tags:
+        - album
+      summary: récupère un album par ID
+      operationId: findByPk
+      description: récupère un album
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/albums'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/albums'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/albums'
+    delete:
+      tags:
+        - album
+      summary: supprimer un album par ID
+      operationId: destroy
+      description: supprimer un album par ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/albums'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/albums'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/albums'
+    put:
+      tags:
+        - album
+      summary: modifier un album par ID
+      operationId: update
+      description: modifier un album par ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/albums'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/albums'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/albums'
+  /album/:id/song:  
+    post:
+      tags:
+        - album
+      summary: ajouter une musique à un album
+      operationId: findByPk
+      description: ajouter une musique à un album
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/albums'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/albums'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/albums'
+  /artist:
+    get:
+      tags:
+        - artist
+      summary: récupère tous les artists
+      operationId: findAll
+      description: récupère tous les artists
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '500':
+          description: KO
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+    post:
+      tags:
+        - artist
+      summary: créér un artist
+      operationId: create
+      description: créér un artist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+  /artist/:id:
+    get:
+      tags:
+        - artist
+      summary: récupère un artist par ID
+      operationId: findByPk
+      description: récupère un artist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+    delete:
+      tags:
+        - artist
+      summary: supprimer un artist par ID
+      operationId: destroy
+      description: supprimer un artist par ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+    put:
+      tags:
+        - artist
+      summary: modifier un artist par ID
+      operationId: update
+      description: modifier un artist par ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'                
+  /artist/:idArtist/lastAlbum:
+    get:
+      tags:
+        - artist
+      summary: récupère le dernier album d'un artist
+      operationId: findAll
+      description: récupère le dernier album d'un artist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+  /artist/:idArtist/albums:
+    get:
+      tags:
+        - artist
+      summary: récupère tous les albums d'un artist
+      operationId: findAll
+      description: récupère tous les albums d'un artist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+  /artist/:idArtist/album/:idAlbum:
+    get:
+      tags:
+        - artist
+      summary: récupère un album d'un artist
+      operationId: findAll
+      description: récupère un album d'un artist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+  /artist/:idArtist/songs:
+    get:
+      tags:
+        - artist
+      summary: récupère les musiques d'un artist
+      operationId: findAll
+      description: récupère les musiques d'un artist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+  /artist/:id/album:
+    post:
+      tags:
+        - artist
+      summary: ajouter un album a un artist
+      operationId: findByPk
+      description: ajouter un album a un artist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/artists'
+  /auth/register:
+    post:
+      tags:
+        - auth
+      summary: créér un utilisateur
+      operationId: findOne, create
+      description: créér un utilisateur
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+        '400':
+          description: KO/ user name already in use
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+  /auth/login:
+    post:
+      tags:
+        - auth
+      summary: se connecter en tant qu'utilisateur
+      operationId: findOne
+      description: se connecter en tant qu'utilisateur
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+        '401':
+          description: KO/ Invalid Password!
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+        '404':
+          description: KO/ User not found
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+  /auth/logout:
+    post:
+      tags:
+        - auth
+      summary: se deconnecter
+      operationId: 
+      description: se deconnecter
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+  /map:
+    get:
+      tags:
+        - map
+      summary: récupère toutes les musiques d'une playlist
+      operationId: findAll
+      description: récupère toutes les musiques d'une playlist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/map'
+        '500':
+          description: KO
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/map'
+    post:
+      tags:
+        - map
+      summary: créér une playlist avec des musiques
+      operationId: 
+      description: créér une playlist avec des musiques
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/map'              
+  /map/:id:
+    get:
+      tags:
+        - map
+      summary: récupère une musique d'une playlist
+      operationId: findByPk
+      description: récupère une musique d'une playlist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/map'
+        '500':
+          description: KO
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/map'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/map'
+  /playlist:
+    get:
+      tags:
+        - playlist
+      summary: récupère toutes les playlists
+      operationId: findAll
+      description: récupère toutes les playlists
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'
+        '500':
+          description: KO
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'
+    post:
+      tags:
+        - playlist
+      summary: créér une playlist
+      operationId: create
+      description: créér une playlist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'                        
+  /playlist/:id:
+    get:
+      tags:
+        - playlist
+      summary: récupère une playlist
+      operationId: findByPk
+      description: récupère une playlist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'
+        '500':
+          description: KO
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'
+    delete:
+      tags:
+        - playlist
+      summary: supprimer une playlist par ID
+      operationId: destroy
+      description: supprimer une playlist par ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'
+    put:
+      tags:
+        - playlist
+      summary: modifier une playlist par ID
+      operationId: update
+      description: modifier une playlist par ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'
+  /playlist/:id/songs:
+    get:
+      tags:
+        - playlist
+      summary: récupère toutes les musiques d'une playlist
+      operationId: findByPk
+      description: récupère toutes les musiques d'une playlist
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'
+        '500':
+          description: KO
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/playlist'
+  /song:
+    get:
+      tags:
+        - song
+      summary: récupère toutes les musiques
+      operationId: findAll
+      description: récupère toutes les musiques
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/song'
+        '500':
+          description: KO
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/song'
+    post:
+      tags:
+        - song
+      summary: créér une musique
+      operationId: create
+      description: créér une musique
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/song'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/song'                        
+  /song/:id:
+    get:
+      tags:
+        - song
+      summary: récupère une musique par ID
+      operationId: findByPk
+      description: récupère une musique par ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/song'
+        '500':
+          description: KO
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/song'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/song'
+    delete:
+      tags:
+        - song
+      summary: supprimer une musique par ID
+      operationId: destroy
+      description: supprimer une musique par ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/song'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/song'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/song'
+    put:
+      tags:
+        - song
+      summary: modifier une musique par ID
+      operationId: update
+      description: modifier une musique par ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/song'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/song'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/song'
+  /user:
+    get:
+      tags:
+        - user
+      summary: récupère touts les utilisateurs
+      operationId: findAll
+      description: récupère touts les utilisateurs
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+        '500':
+          description: KO
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'                     
+  /user/:id:
+    get:
+      tags:
+        - user
+      summary: récupère un utilisateur par ID
+      operationId: findByPk
+      description: récupère un utilisateur par ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+        '500':
+          description: KO
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+    delete:
+      tags:
+        - user
+      summary: supprimer un utilisateur par ID
+      operationId: destroy
+      description: supprimer un utilisateur par ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+    put:
+      tags:
+        - user
+      summary: modifier un utilisateur par ID
+      operationId: update
+      description: modifier un utilisateur par ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+        '500':
+          description: KO/ server
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+        '400':
+          description: KO/ bad request
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/user'
+  /home:
+    get:
+      tags:
+        - home
+      summary: Affiche les données de la page d'accueil
+      operationId:
+      description: Affiche les données de la page d'accueil
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/home'
 components:
   schemas:
-    Book:
+    artists:
       type: object
       required:
-        - id
-        - title
-        - description
-        - createdAt
-        - updatedAt
+        - ArtistName
       properties:
-        id:
+        ArtistName:
           type: string
+    albums:
+      type: object
+      required:
+        - AlbumName
+        - fk_artist
+      properties:
+        AlbumName:
+          type: string
+        fk_artist:
+          type: integer
           format: id
-          example: 42
-        title:
-          type: string
-          example: Lord of the ring
-        description:
-          type: string
-          example: Somebody lost his rings
-        createdAt:
-          type: string
+        AlbumReleaseDate:
+          type: date
           format: date-time
           example: '2016-08-29T09:12:33.001Z'
-        updatedAt:
+    song:
+      type: object
+      required:
+        - SongName
+        - Path
+        - fk_album
+        - fk_artist
+      properties:
+        SongName:
           type: string
+        Path:
+          type: string
+        fk_album:
+          type: integer
+          format: id
+        fk_artist:
+          type: integer
+          format: id
+        SongReleaseDate:
+          type: date
           format: date-time
-          example: '2016-08-29T09:12:33.001Z'
+          example: '2016-08-29T09:12:33.001Z'        
+    user:
+      type: object
+      required:
+        - pseudo
+        - pass
+      properties:
+        pseudo:
+          type: string
+        pass:
+          type: string
+    playlist:
+      type: object
+      required:
+        - PlaylistName
+        - fk_user
+      properties:
+        PlaylistName:
+          type: string
+        fk_user:
+          type: integer
+          format: id
+    map:
+      type: object
+      required:
+        - fk_playlist
+        - fk_song
+      properties:
+        fk_playlist:
+          type: integer
+          format: id
+        fk_song:
+          type: integer
+          format: id
