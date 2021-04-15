@@ -30,19 +30,4 @@ export class AlbumInformationComponent implements OnInit {
     transform(u: string): SafeUrl{
         return this.sanitizer.bypassSecurityTrustUrl(`${environment.media}${u}`);
     }
-    /*
-    deleteBook(id : number) : void {
-        this.bookService.deleteBook(id).subscribe((success : boolean) => {
-            this.router.navigate(['/']);
-        })
-    }
-
-    editMode(edit : boolean) {
-        this.edit = edit;
-    }
-
-    validate(book){
-        this.bookService.updateBook(book);
-        this.edit = false;
-    }*/
 }

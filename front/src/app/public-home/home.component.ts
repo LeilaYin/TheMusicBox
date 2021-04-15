@@ -25,12 +25,6 @@ export class HomeComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    /* this.userService.getPublicContent().subscribe( data => {
-      this.content = data;
-    },
-    err => {
-      this.content = JSON.parse(err.error).message;
-    }); */
   }
   onClick(){
     this.router.navigate(['register'])

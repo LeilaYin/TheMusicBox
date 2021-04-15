@@ -17,17 +17,4 @@ export class AlbumService {
   getAlbum(id: number | string): Observable<Album> {
     return this.http.get<Album>(`${environment.api}/album/${id}`);
   }
-  /*
-  deleteBook(id: number | string) : Observable<boolean> {
-    return this.http.delete<boolean>(`${environment.api}/book/${id}`);
-  }
-  */
-  /* pour bien faire il faudrait récupérer les codes http */
-  /*createBook(book: Book) : void {
-    this.http.post(environment.api + '/book', book).subscribe();
-  }
-
-  updateBook(book: Book) : void {
-    this.http.put(`${environment.api}/book/${book.id}`, book).subscribe();
-  }*/
 }

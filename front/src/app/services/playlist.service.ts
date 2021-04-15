@@ -19,17 +19,4 @@ export class PlaylistService {
   getPlaylist(id: number | string): Observable<Playlist> {
     return this.http.get<Playlist>(`${environment.api}/playlist/${id}/songs`);
   }
-  /*
-  deleteBook(id: number | string) : Observable<boolean> {
-    return this.http.delete<boolean>(`${environment.api}/book/${id}`);
-  }
-  */
-  /* pour bien faire il faudrait récupérer les codes http */
-  /*createBook(book: Book) : void {
-    this.http.post(environment.api + '/book', book).subscribe();
-  }
-
-  updateBook(book: Book) : void {
-    this.http.put(`${environment.api}/book/${book.id}`, book).subscribe();
-  }*/
 }

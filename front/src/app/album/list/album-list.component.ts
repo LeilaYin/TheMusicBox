@@ -15,16 +15,4 @@ export class AlbumListComponent implements OnInit {
   ngOnInit(): void {
     this.albums$ = this.albumService.getAlbums();
   }
-  /*
-  deleteBook(id : number) : void {
-    this.bookService.deleteBook(id).subscribe((success : boolean) => {
-        //if false popup error ?
-        //reload list of books
-        this.books$ = this.books$.pipe(
-          map(books => {
-            return books.filter((book) => book.id != id);
-          })
-        );
-    })
-  }*/
 }

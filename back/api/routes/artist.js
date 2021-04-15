@@ -147,7 +147,7 @@ module.exports = () => {
                 }).then((album) => {
                     res.status(200).send("The album has been created.");
                 }).catch(function(err){
-                    msg_err = "Error when creating a playlist. \n The body must be in JSON format and have the following form :\n { \n \"AlbumName\":\"name\", \n \"fk_artist\":1,\n \"AlbumReleaseDate\": \"yyyy/mm/dd\" \n}";
+                    msg_err = "Error when creating an album. \n The body must be in JSON format and have the following form :\n { \n \"AlbumName\":\"name\", \n \"fk_artist\":1,\n \"AlbumReleaseDate\": \"yyyy/mm/dd\" \n}";
                     res.status(400).send(err);
                 });
 
@@ -163,16 +163,22 @@ module.exports = () => {
     //update artist
     router.put('/:id',(req, res) => {
         if(validator.isInt(req.params.id)){
-            models.Artists.update(req.body, {
-                where: {
-                    id: req.params.id
-                }
-            }).then((artist)=> {
-                res.status(200).send("The artist has been updated.");
+            models.Artists.findByPk(req.params.id,{attributes:['id','ArtistName']}).then((artist) => {
+                var obj = JSON.parse(JSON.stringify(artist));
+                models.Artists.update(req.body, {
+                    where: {
+                        id: obj.id
+                    }
+                }).then((artist)=> {
+                    res.status(200).send("The artist has been updated.");
+                }).catch((error) => {
+                    // DEBUG
+                    //console.log(error);
+                    res.status(500).send("There was a problem updating the artist. \n");
+                });
+
             }).catch((error) => {
-                // DEBUG
-                //console.log(error);
-                res.status(500).send("There was a problem updating the artist. \n");
+                res.status(500).send("There was a problem updating the artist, unknown id.");
             });
         }else{
             res.status(400).send("Bad parameter for updating artist, ID, must be an integer");

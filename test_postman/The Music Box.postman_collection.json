@@ -176,7 +176,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/artist",
+					"raw": "http://localhost:3000/api/artist/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -184,7 +184,8 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"artist"
+						"artist",
+						""
 					]
 				}
 			},
@@ -232,7 +233,7 @@
 					"raw": "{\r\n    \"AlbumName\": \"AnotherExtraordinaryAlbum\",\r\n    \"fk_artist\": 3,\r\n    \"AlbumReleaseDate\" : \"08/03/2021\"\r\n}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/album",
+					"raw": "http://localhost:3000/api/album/",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -240,7 +241,8 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"album"
+						"album",
+						""
 					]
 				}
 			},
