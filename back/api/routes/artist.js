@@ -135,7 +135,7 @@ module.exports = () => {
         }  
     });
 
-    //add an ablbum to an artist
+    //add an album to an artist
     router.post('/:id/album', (req, res) => {
         if(validator.isInt(req.params.id)){
             models.Artists.findByPk(req.params.id,{attributes:['id','ArtistName']}).then((artist) => {
