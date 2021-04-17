@@ -9,7 +9,7 @@ module.exports = () => {
             res.status(200).send(map);
         }).catch((error) => {
             console.log(error);
-            res.sendStatus(500);
+            res.status(500).send("There was a problem loading all map.");
         });
     });
     // get a song from a playlist
@@ -18,7 +18,7 @@ module.exports = () => {
             models.MapPlaylistSongs.findByPk(req.params.id).then((map) => {
                 res.status(200).send(map);
             }).catch((error) => {
-                res.sendStatus(500);
+                res.status(500).send("There was a problem loading the map.");;
             });
         }else{
             res.status(400).send("Bad parameter for Map ID, must be an integer");
@@ -27,7 +27,7 @@ module.exports = () => {
     // create a playlist with songs
     router.post('/', (req, res) => {
         models.MapPlaylistSongs.create(req.body);
-        res.status(200).send("The playlist has been created");
+        res.status(200).send("The map has been created");
     });
 
     return router;

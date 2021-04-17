@@ -8,15 +8,21 @@
     The front-end is developed using Angular
     The media server use http-server
     
- - Run this project online:
+ - Run the project locally (each part independently) :
     - For the front : 
-        - Go to : https://leilayin.github.io/TheMusicBox/#/Home
+        - cd front
+        - docker build -t front .
+        - docker run -p 4200:4200 front
     - For the back : 
-        - Go to : https://replit.com/@rvende/backtmb#.replit
         - cd back
-        - node index.js
+        - docker build -t back .
+        - docker run -p 3000:3000 back
     - For the media-server :
-        - Go to : https://mediatmb.rvende.repl.co
         - cd media-server
-        - npx http-server -p 4343
+        - docker build -t media .
+        - docker run -p 4343:4343 media
+
+- Run the project locally :
+    - docker-compose build
+    - docker-compose up -d
         

@@ -16,7 +16,7 @@ module.exports = () => {
             attributes: ['id', 'PlaylistName']
         })
             .then((playlist) => {
-                res.send(playlist);
+                res.status(200).send(playlist);
             }).catch((error) => {
                 //DEBUG
                 //console.log(error);
@@ -63,7 +63,7 @@ module.exports = () => {
                 }).catch((error) => {
                     // DEBUG
                     //console.log(error);
-                    res.status(500).send("There was a problem loading the song.");
+                    res.status(500).send("There was a problem loading the songs.");
                 });
             }).catch((error) => {
                 // DEBUG

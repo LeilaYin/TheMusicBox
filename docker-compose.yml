@@ -1,0 +1,35 @@
+version: "3"
+services:
+  mysql:
+    image: mysql:latest
+    environment:
+      - MYSQL_DATABASE=mybestapp
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+    ports:
+      - 3366:3306
+  back:
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=production
+      - DB_USERNAME=root
+      - DB_PASSWORD=my-secret-pw
+      - DB_NAME=mybestapp
+      - DB_HOSTNAME=mysql
+# docker run -p 3000:3000 back
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    ports:
+      - 4200:4200
+
+  media:
+    build:
+      context: ./media-server
+      dockerfile: Dockerfile
+    ports:
+      - 4343:4343

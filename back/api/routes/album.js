@@ -133,7 +133,7 @@ module.exports = () => {
                 fk_album: req.params.id,
                 fk_artist: obj.id
             }).then((album) => {
-                res.status(200).send("The album has been created.");
+                res.status(200).send("The song has been created.");
             }).catch((error) => {
                 // DEBUG
                 //console.log(error);

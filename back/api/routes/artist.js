@@ -89,6 +89,7 @@ module.exports = () => {
         if(validator.isInt(req.params.idArtist)){
             models.Artists.findAll({
                 limit: 10,
+                offset:3,
                 where:{id:req.params.idArtist},
                 include:[{model:models.Songs,include:[{model:models.Albums}]}],
                 
@@ -156,7 +157,7 @@ module.exports = () => {
             });
             
         }else{
-            res.status(400).send("Bad parameter for deleting album, ID, must be an integer");
+            res.status(400).send("Bad parameter for creating album, ID, must be an integer");
         } 
     });
 
